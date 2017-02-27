@@ -1,24 +1,25 @@
 import React, { Component, PropTypes } from 'react';
+import { Button, Row, Form, Input } from 'antd';
 import pureRender from 'pure-render-decorator';
 import { History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import { Tool } from '../config/tool';
-import { template } from './common/mixin'; 
+import { template } from './common/mixin';
+import { config } from '../config/config';
+
+import styles from './../style/login.less';
 
 class Main extends Component {
 	render() {
-		var {User, params} = this.props;
 		return (
-			<div>
-				基于react + redux + immutable + less + ES6/7 + webpack + fetch + react-router + antd(1.x)实现的SPA后台管理系统模板
-			</div>
+			<div>登录界面</div>
 		);
 	}
 }
 
 export default template({
-	id: 'index', // 应用关联使用的redex
+	id: 'login', // 应用关联使用的redex
 	component: Main, // 接收数据的组件入口
 	url: ''
 });
