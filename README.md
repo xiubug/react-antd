@@ -9,6 +9,7 @@
 #####邮&emsp;&emsp;箱： sosout@yeah.net
 #####个人网站： http://www.sosout.com/
 #####个人博客： http://blog.sosout.com/
+#####segmentfault：https://segmentfault.com/u/sosout
 #####个人简书： http://www.jianshu.com/users/23b9a23b8849/latest_articles
 
 ### 下载
