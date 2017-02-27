@@ -7,7 +7,6 @@ var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'src'); // __dirname中的src目录，以此类推
 var APP_FILE = path.resolve(APP_PATH, 'app'); // 根目录文件app.jsx地址
 var BUILD_PATH = path.resolve(ROOT_PATH, 'antd/dist'); // 发布文件所存放的目录
-console.log(BUILD_PATH);
 
 module.exports = {
     entry: {
@@ -22,7 +21,7 @@ module.exports = {
         ]
     },
     output: {
-        publicPath: '/antd/dist/', //编译好的文件，在服务器的路径,域名会自动添加到前面
+        publicPath: '/dist/', //编译好的文件，在服务器的路径,域名会自动添加到前面
         path: BUILD_PATH, //编译到当前目录
         filename: '[name].js', //编译后的文件名字
         chunkFilename: '[name].[chunkhash:5].min.js'
