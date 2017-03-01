@@ -35,10 +35,8 @@ module.exports = {
             loaders: ['style', 'css', 'autoprefixer'],
             include: [APP_PATH]
         }, {
-            test: /\.less$/,
-            exclude: /^node_modules$/,
-            loaders: ['style', 'css', 'autoprefixer', 'less'],
-            include: [APP_PATH]
+            test: /\.less$/, // 去掉exclude: /^node_modules$/和include: [APP_PATH]是为了babel-plugin-import按需加载antd资源
+            loaders: ['style', 'css', 'autoprefixer', 'less']
         }, {
             test: /\.(eot|woff|svg|ttf|woff2|gif|appcache)(\?|$)/,
             exclude: /^node_modules$/,
@@ -68,8 +66,8 @@ module.exports = {
             template: './src/template/index.html', //html模板路径
             hash: false,
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.HotModuleReplacementPlugin(), // 热更新插件
+        new webpack.NoErrorsPlugin() // 即使有错误也不中断运行
     ],
     resolve: {
         extensions: ['', '.js', '.jsx', '.less', '.css'], //后缀名自动补全

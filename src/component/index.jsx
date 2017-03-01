@@ -1,12 +1,24 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'; // 引入了React和PropTypes。PropTypes是用于检查props参数类型，可有可无，最好是有
 import pureRender from 'pure-render-decorator';
 import { History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import { Tool } from '../config/tool';
-import { template } from './common/mixin'; 
+import { template, SpinLoad } from './common/mixin'; 
 
+/* 以类的方式创建一个组件 */
 class Main extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
+
+	/* 组件初始化完毕时触发 */
+	componentDidMount() {
+		
+	}
+
+	/* 渲染组件 */
 	render() {
 		var {User, params} = this.props;
 		return (

@@ -3,6 +3,7 @@ import pureRender from 'pure-render-decorator';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import *as action from '../../redux/action/index';
+import { SpinLoad } from './mixin';
 
 const Main = mySeting => {
 	let seting = {
@@ -21,10 +22,16 @@ const Main = mySeting => {
 
 		constructor(props, context) {
 			super(props, context);
+			console.log(this.state);
 		}
 
 		render() {
-			return <this.props.seting.component {...this.props} state={this.props.state.toJS()} />;
+			return (
+				<div>
+					<this.props.seting.component {...this.props} state={this.props.state.toJS()} />
+					<div><SpinLoad size="large" tip="" /></div>
+				</div>
+			);
 		}
 
 		componentDidMount() { // 获取数据

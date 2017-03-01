@@ -8,12 +8,12 @@ var compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
     publicPath: config.output.publicPath,
-    hot: true,
-    historyApiFallback: true,
-    inline: true,
-    progress: true,
+    hot: true,  // 是否启用热更新
+    historyApiFallback: true, // 所有的url路径均跳转到index.html,需要设置为true，否则比如访问localhost:8888,就跳转不到/home页
+    inline: true, // 是否实时刷新，即代码有更改，自动刷新浏览器
+    progress: true, // 在控制台输出webpack的编译进度
     stats: {
-        colors: true
+        colors: true // 不同类型的信息用不同的颜色显示
     }
 }));
 
@@ -30,6 +30,8 @@ app.get('*', function(req, res) {
     res.sendFile(__dirname + '/index.html')
 });
 
+
+/* 启动服务 */
 app.listen(8888, function() {
     console.log('成功开启8888端口')
 });
