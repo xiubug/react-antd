@@ -28,6 +28,7 @@ class Login extends Component {
     	e.preventDefault();
 	    this.props.form.validateFieldsAndScroll((err, values) => {
 		    if (!err) {
+		    	delete localStorage.token;
 		    	this.setState({ loginBtnLoading: true, loginBtnText: '登录中...' });
 		    	auth.login(values.username, values.password, (res) => {
 		    		if (res) {
