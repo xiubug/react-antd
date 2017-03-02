@@ -1,3 +1,9 @@
+/**
+ * 登录逻辑
+ * 
+ * @class auth
+ * 
+ */
 const pretendRequest = (username, password, cb) => {
 	setTimeout(() => {
 		if(username === 'sosout' && password === 'sosout') {

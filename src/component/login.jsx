@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react'; // 引入了React和PropTypes
 import pureRender from 'pure-render-decorator';
-import { History, Link } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import { Tool } from '../config/tool';
-import { template } from './common/mixin';
+import { template, auth } from './common/mixin';
 import { config } from '../config/config';
 
 import styles from '../style/login.less';
 
-import { Spin, Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button } from 'antd';
+import { Spin, Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, message } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -29,6 +29,16 @@ class Login extends Component {
 	    this.props.form.validateFieldsAndScroll((err, values) => {
 		    if (!err) {
 		    	this.setState({ loginBtnLoading: true, loginBtnText: '登录中...' });
+		    	auth.login(values.username, values.password, (res) => {
+		    		if (res) {
+	                    this.context.router.push({
+	                        pathname: 'index'
+	                    });
+	                } else {
+	                	message.error('用户名或者密码错误', 1);
+	                    this.setState({ loginBtnLoading: false, loginBtnText: '登录' });
+	                }
+		    	});
 		    	console.log('Received values of form: ', values);
 		    }
 	    });
@@ -91,6 +101,10 @@ class Login extends Component {
 		);
 	}
 }
+
+Login.contextTypes = {
+    router: React.PropTypes.object.isRequired
+};
 
 const Main = Form.create()(Login);
 
