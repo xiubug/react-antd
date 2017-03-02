@@ -1,6 +1,6 @@
-const pretendRequest = (email, pass, cb) => {
+const pretendRequest = (username, password, cb) => {
 	setTimeout(() => {
-		if(email === 'sosout@yeah.net' && pass === 'sosout') {
+		if(username === 'sosout' && password === 'sosout') {
 			cb({
 				authenticated: true,
 				token: Math.random().toString(36).substring(7)
@@ -12,14 +12,14 @@ const pretendRequest = (email, pass, cb) => {
 }
 
 const auth = {
-	login(email, pass, cb) {
+	login(username, password, cb) {
 		cb = arguments[arguments.length - 1];
 		if(localStorage.token) {
 			if (cb) cb(true);
 			this.onChange(true);
 			return;
 		}
-		pretendRequest(email, pass, (res) => {
+		pretendRequest(username, password, (res) => {
 			if(res.authenticated) {
 				localStorage.token = res.token;
 				if(cb) cb(true);

@@ -53,7 +53,7 @@ class Login extends Component {
 		const { getFieldDecorator } = this.props.form;
 		return (	
 		<div className="login-form">
-			<Spin tip="Loading..." spinning={this.state.loginSpinning}>
+			<Spin tip="载入中..." spinning={this.state.loginSpinning}>
 				<div className="login-logo">
 			        <img src={config.logoSrc} />
 			        <span>Ant Design</span>

@@ -4,7 +4,7 @@ import { History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import { Tool } from '../config/tool';
-import { template, SpinLoad } from './common/mixin'; 
+import { template } from './common/mixin'; 
 
 /* 以类的方式创建一个组件 */
 class Main extends Component {

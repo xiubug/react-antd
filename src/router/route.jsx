@@ -17,7 +17,7 @@
 */
 import React, {Component, PropTypes} from 'react'; // react核心
 import { Router, Route, Redirect, IndexRoute, browserHistory, hashHistory } from 'react-router'; // 创建route所需
-import auth from './auth'; // 登录逻辑处理
+import { auth } from '../component/common/mixin'; // 登录逻辑处理
 import index from '../component/index'; // 首页
 import login from '../component/login'; // 登录界面
 
