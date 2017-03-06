@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { is, fromJS} from 'immutable';
 import { Router } from 'react-router';
 // 头部样式
 import '../../style/header.less';

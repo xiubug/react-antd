@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-const { Header, Sider } = Layout;
+import { Layout, Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 /**
  * 公共菜单
@@ -12,10 +11,6 @@ const SubMenu = Menu.SubMenu;
 export class Lmenu extends Component {
 	constructor(props, context) {
 		super(props, context); //后才能用this获取实例化对象
-		this.state = {
-			collapsed: false,
-			mode: 'inline'
-		};
 	}
 	render() {
 		return (

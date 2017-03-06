@@ -5,8 +5,12 @@ import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import { Tool } from '../config/tool';
 import { template } from './common/mixin'; 
+// 公共头部
 import { Lheader } from './layout/lheader';
+// 公共菜单
 import { Lmenu } from './layout/lmenu';
+// 公共底部
+import { Lfooter } from './layout/lfooter';
 
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { Content, Footer, Sider } = Layout;
@@ -57,9 +61,7 @@ class Main extends Component {
 	              Bill is a cat.
 	            </div>
 	          </Content>
-	          <Footer style={{ textAlign: 'center' }}>
-	            Ant Design ©2016 Created by Ant UED
-	          </Footer>
+	          <Lfooter />
 	        </Layout>
 	    </Layout>
 		);
