@@ -25,7 +25,6 @@ class Main extends Component {
     		mode: 'inline'
 		};
 	}
-
 	onCollapse = (collapsed) => {
 	    this.setState({
 	      collapsed,
@@ -47,7 +46,10 @@ class Main extends Component {
 	          collapsed={this.state.collapsed}
 	          onCollapse={this.onCollapse}
 	        >
-	        <div className="logo" />
+	        <div className="layout-logo">
+	        	<img className="logo-img" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
+	        	<span className="logo-text">Antd Admin</span>
+	        </div>
 	        <Lmenu mode={ this.state.mode } />
 	        </Sider>
 	        <Layout>
