@@ -34,9 +34,9 @@ export class Lmenu extends Component {
 	              {!this.props.collapsed && <span className="nav-text">系统设置</span>}
 	            </Link>
 	            </Menu.Item>
-	            <Menu.Item key="adver">
+	            <Menu.Item key="notification">
 	            <Link to="/adver">
-	              <Icon type="adver" />
+	              <Icon type="notification" />
 	              {!this.props.collapsed && <span className="nav-text">广告管理</span>}
 	            </Link>
 	            </Menu.Item>
