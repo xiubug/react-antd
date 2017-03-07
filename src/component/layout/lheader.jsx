@@ -1,8 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { Router } from 'react-router';
-// 头部样式
-import '../../style/header.less';
-
 import { Layout, Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 const { Header } = Layout;

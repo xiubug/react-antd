@@ -3,14 +3,17 @@ import pureRender from 'pure-render-decorator';
 import { History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
-import { Tool } from '../config/tool';
-import { template } from './common/mixin'; 
+import { Tool } from '../../config/tool';
+import { template } from '../common/mixin'; 
 // 公共头部
-import { Lheader } from './layout/lheader';
+import { Lheader } from './lheader';
 // 公共菜单
-import { Lmenu } from './layout/lmenu';
+import { Lmenu } from './lmenu';
 // 公共底部
-import { Lfooter } from './layout/lfooter';
+import { Lfooter } from './lfooter';
+
+// 底部样式
+import '../../style/layout.less';
 
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { Content, Footer, Sider } = Layout;
@@ -56,7 +59,7 @@ class Main extends Component {
 	        </Sider>
 	        <Layout>
 	          <Lheader collapsed={this.state.collapsed} toggle={ collapsed => this.toggle(collapsed) } />
-	          <Content style={{ margin: '0 16px' }}>
+	          <Content className="layout-content">
 	           	{this.props.children}
 	          </Content>
 	          <Lfooter />

@@ -15,12 +15,13 @@
 *    }
 * }
 */
+
 import React, {Component, PropTypes} from 'react'; // react核心
 import { Router, Route, Redirect, IndexRoute, browserHistory, hashHistory } from 'react-router'; // 创建route所需
 import { auth } from '../component/common/mixin'; // 登录逻辑处理
-import layout from '../component/layout'; // 布局界面
+import layout from '../component/layout/layout'; // 布局界面
 import home from '../component/home'; // 主页
-import user from '../component/user'; // 用户管理
+import user from '../component/user/user'; // 用户管理
 import login from '../component/login'; // 登录界面
 
 /**

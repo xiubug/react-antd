@@ -3,8 +3,6 @@ import React, { Component, PropTypes } from 'react';
 
 import { Layout } from 'antd';
 const { Footer } = Layout;
-// 底部样式
-import '../../style/footer.less';
 
 /**
  * 公共底部
