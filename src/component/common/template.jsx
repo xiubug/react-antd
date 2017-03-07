@@ -21,7 +21,6 @@ const Main = mySeting => {
 
 		constructor(props, context) {
 			super(props, context);
-			console.log(this.state);
 		}
 
 		render() {

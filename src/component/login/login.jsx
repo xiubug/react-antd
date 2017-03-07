@@ -3,11 +3,11 @@ import pureRender from 'pure-render-decorator';
 import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
-import { Tool } from '../config/tool';
-import { template, auth } from './common/mixin';
-import { config } from '../config/config';
+import { Tool } from '../../config/tool';
+import { template, auth } from '../common/mixin';
+import { config } from '../../config/config';
 
-import styles from '../style/login.less';
+import styles from '../../style/login.less';
 
 import { Spin, Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, message } from 'antd';
 const FormItem = Form.Item;

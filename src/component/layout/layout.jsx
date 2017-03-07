@@ -23,9 +23,9 @@ const SubMenu = Menu.SubMenu;
 class Main extends Component {
 	constructor(props) {
 		super(props);
+		console.log(props);
 		this.state = {
 			collapsed: false,
-			defaultSelectedKeys: ['home'],
     		mode: 'inline'
 		};
 	}
@@ -34,6 +34,7 @@ class Main extends Component {
 	      collapsed,
 	      mode: collapsed ? 'vertical' : 'inline'
 	    });
+	    alert(this.state.mode);
 	}
 	toggle = (collapsed) => {
 	    this.setState({
@@ -56,7 +57,7 @@ class Main extends Component {
 		        	<span className="logo-text">Antd Admin</span>
 	        	</Link>
 	        </div>
-	        <Lmenu mode={ this.state.mode } defaultkey={ this.state.defaultSelectedKeys } />
+	        <Lmenu mode={ this.state.mode } />
 	        </Sider>
 	        <Layout>
 	          <Lheader collapsed={this.state.collapsed} toggle={ collapsed => this.toggle(collapsed) } />

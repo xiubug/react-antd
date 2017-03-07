@@ -12,19 +12,10 @@ const SubMenu = Menu.SubMenu;
 export class Lmenu extends Component {
 	constructor(props, context) {
 		super(props, context); //后才能用this获取实例化对象
-		this.state = {
-			defaultSelectedKeys: this.props.defaultkey
-		};
-	}
-	onSelect = (o) => {
-		this.setState({
-			defaultSelectedKeys: o.selectedKeys
-		});
-		console.log(this.state.defaultSelectedKeys);
 	}
 	render() {
 		return (
-			<Menu onSelect={this.onSelect} theme="dark" mode={this.props.mode} defaultSelectedKeys={[location.pathname.split('/')[location.pathname.split('/').length - 1] || 'home']}>
+			<Menu theme="dark" mode={this.props.mode} defaultSelectedKeys={[location.pathname.split('/')[location.pathname.split('/').length - 1] || 'home']}>
 		        <Menu.Item key="home">
 		        <Link to="/">
 	              <Icon type="laptop" />
