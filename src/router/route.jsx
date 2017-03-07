@@ -62,8 +62,8 @@ const RouteConfig = (
 				<Route path="user" component={user}></Route>
 				<Route path="setting" component={setting}></Route>
 				<Route path="adver" component={adver}></Route>
-				<Route path="ui/one" component={oneui}></Route>
-				<Route path="ui/two" component={twoui}></Route>
+				<Route path="ui/oneui" component={oneui}></Route>
+				<Route path="ui/twoui" component={twoui}></Route>
 			</Route>
 			<Route path="login" component={login} /> // 一个路由地址，比如访问www.test.com/home,就会跳转到此
 			<Redirect from="*" to="/" /> // 所有的其他未定义的访问路径，都跳转到根路径，比如访问www.test.com/abc, 但是/abc我们没有定义，就会自动跳转到www.test.com, 而www.test.com又会自动跳转到www.test.com/home

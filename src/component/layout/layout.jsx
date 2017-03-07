@@ -25,6 +25,7 @@ class Main extends Component {
 		super(props);
 		this.state = {
 			collapsed: false,
+			defaultSelectedKeys: ['home'],
     		mode: 'inline'
 		};
 	}
@@ -55,7 +56,7 @@ class Main extends Component {
 		        	<span className="logo-text">Antd Admin</span>
 	        	</Link>
 	        </div>
-	        <Lmenu mode={ this.state.mode } />
+	        <Lmenu mode={ this.state.mode } defaultkey={ this.state.defaultSelectedKeys } />
 	        </Sider>
 	        <Layout>
 	          <Lheader collapsed={this.state.collapsed} toggle={ collapsed => this.toggle(collapsed) } />
