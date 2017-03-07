@@ -4,7 +4,8 @@ import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import { Tool } from '../../config/tool';
-import { template, auth } from '../common/mixin';
+import { template } from '../common/mixin';
+import auth from './auth';
 import { config } from '../../config/config';
 
 import styles from '../../style/login.less';
@@ -47,7 +48,6 @@ class Login extends Component {
 	checkConfirm = (rule, value, callback) => {
 		const form = this.props.form;
 	    if (value && this.state.passwordDirty) {
-	    	console.log('1');
 	    	form.validateFields(['confirm'], { force: true });
 	    }
 	    callback();
