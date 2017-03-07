@@ -14,8 +14,9 @@ export class Lmenu extends Component {
 		super(props, context); //后才能用this获取实例化对象
 	}
 	render() {
+		const defaultSelectedKey = process.env.NODE_ENV !== 'production' ? [location.pathname.split('/')[location.pathname.split('/').length - 1] || 'home'] : [location.hash.split('/')[location.hash.split('/').length - 1].split('?')[0] || 'home'];
 		return (
-			<Menu theme="dark" mode={this.props.mode} defaultSelectedKeys={[location.pathname.split('/')[location.pathname.split('/').length - 1] || 'home']}>
+			<Menu theme="dark" mode={this.props.mode} defaultSelectedKeys={defaultSelectedKey}>
 		        <Menu.Item key="home">
 		        <Link to="/">
 	              <Icon type="laptop" />

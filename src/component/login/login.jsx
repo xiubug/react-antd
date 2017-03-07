@@ -34,7 +34,7 @@ class Login extends Component {
 		    	auth.login(values.username, values.password, (res) => {
 		    		if (res) {
 	                    this.context.router.push({
-	                        pathname: 'index'
+	                        pathname: '/'
 	                    });
 	                } else {
 	                	message.error('用户名或者密码错误', 1);

@@ -21,12 +21,6 @@ import { Router, Route, Redirect, IndexRoute, browserHistory, hashHistory } from
 import auth from '../component/login/auth'; // 登录逻辑处理
 import layout from '../component/layout/layout'; // 布局界面
 
-import home from '../component/home'; // 主页
-import user from '../component/user/user'; // 用户管理
-import setting from '../component/setting/setting'; // 系统设置
-import adver from '../component/adver/adver'; // 广告管理
-import oneui from '../component/ui/one'; // 组件一
-import twoui from '../component/ui/two'; // 组件二
 import login from '../component/login/login'; // 登录界面
 
 /**
@@ -46,6 +40,49 @@ class Roots extends Component {
 
 const history = process.env.NODE_ENV !== 'production' ? browserHistory : hashHistory;
 
+// 主页
+const home = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../component/home').default)
+    }, 'home');
+}
+
+// 用户管理
+const user = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../component/user/user').default)
+    }, 'user');
+}
+
+// 系统设置
+const setting = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../component/setting/setting').default)
+    }, 'setting');
+}
+
+// 广告管理
+const adver = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../component/adver/adver').default)
+    }, 'adver');
+}
+
+// 组件一
+const oneui = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../component/ui/one').default)
+    }, 'oneui');
+}
+
+// 组件二
+const twoui = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../component/ui/two').default)
+    }, 'twoui');
+}
+
+// 登录验证
 const requireAuth = (nextState, replace) => {
 	if(!auth.loggedIn()) {
 		replace({
@@ -59,12 +96,12 @@ const RouteConfig = (
 	<Router history={history}>
 		<Route path="/" component={Roots}> // 所有的访问，都跳转到Roots
 			<Route component={layout} onEnter={requireAuth}>
-				<IndexRoute component={home} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
-				<Route path="user" component={user}></Route>
-				<Route path="setting" component={setting}></Route>
-				<Route path="adver" component={adver}></Route>
-				<Route path="ui/oneui" component={oneui}></Route>
-				<Route path="ui/twoui" component={twoui}></Route>
+				<IndexRoute getComponent={home} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
+				<Route path="user" getComponent={user} onEnter={requireAuth}></Route>
+				<Route path="setting" getComponent={setting} onEnter={requireAuth}></Route>
+				<Route path="adver" getComponent={adver} onEnter={requireAuth}></Route>
+				<Route path="ui/oneui" getComponent={oneui} onEnter={requireAuth}></Route>
+				<Route path="ui/twoui" getComponent={twoui} onEnter={requireAuth}></Route>
 			</Route>
 			<Route path="login" component={login} /> // 一个路由地址，比如访问www.test.com/home,就会跳转到此
 			<Redirect from="*" to="/" /> // 所有的其他未定义的访问路径，都跳转到根路径，比如访问www.test.com/abc, 但是/abc我们没有定义，就会自动跳转到www.test.com, 而www.test.com又会自动跳转到www.test.com/home

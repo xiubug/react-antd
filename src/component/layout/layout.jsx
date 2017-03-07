@@ -19,7 +19,12 @@ import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
-/* 以类的方式创建一个组件 */
+/**
+ * (路由根目录组件，显示当前符合条件的组件)
+ * 
+ * @class Main
+ * @extends {Component}
+ */
 class Main extends Component {
 	constructor(props) {
 		super(props);
@@ -34,7 +39,6 @@ class Main extends Component {
 	      collapsed,
 	      mode: collapsed ? 'vertical' : 'inline'
 	    });
-	    alert(this.state.mode);
 	}
 	toggle = (collapsed) => {
 	    this.setState({
@@ -42,8 +46,8 @@ class Main extends Component {
 	      mode: collapsed ? 'vertical' : 'inline'
 	    });
   	}
-	/* 渲染组件 */
 	render() {
+		// 这个组件是一个包裹组件，所有的路由跳转的页面都会以this.props.children的形式加载到本组件下
 		return (
 		<Layout className="layout">
 	        <Sider
