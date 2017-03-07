@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import { Layout, Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 /**
@@ -14,23 +15,22 @@ export class Lmenu extends Component {
 	}
 	render() {
 		return (
-	        <Menu theme="dark" mode={this.props.mode} defaultSelectedKeys={['6']}>
+	        <Menu theme="dark" mode={this.props.mode}>
+		        <Menu.Item key="1">
+		            <Link to="/user">
+		              <span>
+		                <Icon type="user" />
+		                <span className="nav-text">用户管理</span>
+		              </span>
+		            </Link>
+		        </Menu.Item>
 	            <SubMenu
-	              key="sub1"
-	              title={<span><Icon type="user" /><span className="nav-text">User</span></span>}
+	              key="sub2" title={<span><Icon type="team" /><span className="nav-text">UI组件</span></span>}
 	            >
-	              <Menu.Item key="1">Tom</Menu.Item>
-	              <Menu.Item key="2">Bill</Menu.Item>
-	              <Menu.Item key="3">Alex</Menu.Item>
+	              <Menu.Item key="2">组件一</Menu.Item>
+	              <Menu.Item key="3">组件二</Menu.Item>
 	            </SubMenu>
-	            <SubMenu
-	              key="sub2"
-	              title={<span><Icon type="team" /><span className="nav-text">Team</span></span>}
-	            >
-	              <Menu.Item key="4">Team 1</Menu.Item>
-	              <Menu.Item key="5">Team 2</Menu.Item>
-	            </SubMenu>
-	            <Menu.Item key="6">
+	            <Menu.Item key="4">
 	              <span>
 	                <Icon type="file" />
 	                <span className="nav-text">File</span>

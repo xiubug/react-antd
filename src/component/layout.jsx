@@ -28,13 +28,13 @@ class Main extends Component {
 	onCollapse = (collapsed) => {
 	    this.setState({
 	      collapsed,
-	      mode: collapsed ? 'vertical' : 'inline',
+	      mode: collapsed ? 'vertical' : 'inline'
 	    });
 	}
 	toggle = (collapsed) => {
 	    this.setState({
 	      collapsed: collapsed,
-	      mode: collapsed ? 'vertical' : 'inline',
+	      mode: collapsed ? 'vertical' : 'inline'
 	    });
   	}
 	/* 渲染组件 */
@@ -55,13 +55,7 @@ class Main extends Component {
 	        <Layout>
 	          <Lheader collapsed={this.state.collapsed} toggle={ collapsed => this.toggle(collapsed) } />
 	          <Content style={{ margin: '0 16px' }}>
-	            <Breadcrumb style={{ margin: '12px 0' }}>
-	              <Breadcrumb.Item>User</Breadcrumb.Item>
-	              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-	            </Breadcrumb>
-	            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-	              Bill is a cat.
-	            </div>
+	           	{this.props.children}
 	          </Content>
 	          <Lfooter />
 	        </Layout>
