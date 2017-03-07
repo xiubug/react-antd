@@ -47,8 +47,10 @@ class Main extends Component {
 	          onCollapse={this.onCollapse}
 	        >
 	        <div className="layout-logo">
-	        	<img className="logo-img" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
-	        	<span className="logo-text">Antd Admin</span>
+	        	<Link to="/">
+		        	<img className="logo-img" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
+		        	<span className="logo-text">Antd Admin</span>
+	        	</Link>
 	        </div>
 	        <Lmenu mode={ this.state.mode } />
 	        </Sider>
