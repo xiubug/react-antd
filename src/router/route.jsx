@@ -22,6 +22,10 @@ import { auth } from '../component/common/mixin'; // 登录逻辑处理
 import layout from '../component/layout/layout'; // 布局界面
 import home from '../component/home'; // 主页
 import user from '../component/user/user'; // 用户管理
+import setting from '../component/setting/setting'; // 系统设置
+import adver from '../component/adver/adver'; // 广告管理
+import oneui from '../component/ui/one'; // 组件一
+import twoui from '../component/ui/two'; // 组件二
 import login from '../component/login'; // 登录界面
 
 /**
@@ -56,6 +60,10 @@ const RouteConfig = (
 			<Route component={layout} onEnter={requireAuth}>
 				<IndexRoute component={home} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
 				<Route path="user" component={user}></Route>
+				<Route path="setting" component={setting}></Route>
+				<Route path="adver" component={adver}></Route>
+				<Route path="ui/one" component={oneui}></Route>
+				<Route path="ui/two" component={twoui}></Route>
 			</Route>
 			<Route path="login" component={login} /> // 一个路由地址，比如访问www.test.com/home,就会跳转到此
 			<Redirect from="*" to="/" /> // 所有的其他未定义的访问路径，都跳转到根路径，比如访问www.test.com/abc, 但是/abc我们没有定义，就会自动跳转到www.test.com, 而www.test.com又会自动跳转到www.test.com/home

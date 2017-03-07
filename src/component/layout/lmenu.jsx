@@ -15,27 +15,37 @@ export class Lmenu extends Component {
 	}
 	render() {
 		return (
-	        <Menu theme="dark" mode={this.props.mode}>
-		        <Menu.Item key="1">
-		            <Link to="/user">
-		              <span>
-		                <Icon type="user" />
-		                <span className="nav-text">用户管理</span>
-		              </span>
-		            </Link>
-		        </Menu.Item>
+			<Menu theme="dark" mode={this.props.mode} defaultSelectedKeys={['laptop']}>
+		        <Menu.Item key="laptop">
+		        <Link to="/">
+	              <Icon type="laptop" />
+	              {!this.props.collapsed && <span className="nav-text">欢迎页</span>}
+	            </Link>
+	            </Menu.Item>
+	            <Menu.Item key="user">
+	            <Link to="/user">
+	              <Icon type="user" />
+	              {!this.props.collapsed && <span className="nav-text">用户管理</span>}
+	            </Link>
+	            </Menu.Item>
+	            <Menu.Item key="setting">
+	            <Link to="/setting">
+	              <Icon type="setting" />
+	              {!this.props.collapsed && <span className="nav-text">系统设置</span>}
+	            </Link>
+	            </Menu.Item>
+	            <Menu.Item key="adver">
+	            <Link to="/adver">
+	              <Icon type="adver" />
+	              {!this.props.collapsed && <span className="nav-text">广告管理</span>}
+	            </Link>
+	            </Menu.Item>
 	            <SubMenu
 	              key="sub2" title={<span><Icon type="team" /><span className="nav-text">UI组件</span></span>}
 	            >
-	              <Menu.Item key="2">组件一</Menu.Item>
-	              <Menu.Item key="3">组件二</Menu.Item>
+	              <Menu.Item><Link to="/ui/one">组件一</Link></Menu.Item>
+	              <Menu.Item><Link to="/ui/two">组件二</Link></Menu.Item>
 	            </SubMenu>
-	            <Menu.Item key="4">
-	              <span>
-	                <Icon type="file" />
-	                <span className="nav-text">File</span>
-	              </span>
-	            </Menu.Item>
 	        </Menu>
 		)
 	}
