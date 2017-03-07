@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
+import { config } from '../../config/config';
 
 import { Layout } from 'antd';
 const { Footer } = Layout;
@@ -18,7 +19,7 @@ export class Lfooter extends Component {
 	render() {
 		return (
 			<Footer className="layout-footer">
-	            Ant Design ©2016 Created by Ant UED
+	            { config.footerText }
 	        </Footer>
 		)
 	}

@@ -3,7 +3,7 @@ import pureRender from 'pure-render-decorator';
 import { History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
-import { Tool } from '../../config/tool';
+import { config } from '../../config/config';
 import { template } from '../common/mixin'; 
 // 公共头部
 import { Lheader } from './lheader';
@@ -53,8 +53,8 @@ class Main extends Component {
 	        >
 	        <div className="layout-logo">
 	        	<Link to="/">
-		        	<img className="logo-img" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
-		        	<span className="logo-text">Antd Admin</span>
+		        	<img className="logo-img" src={config.logoSrc} />
+		        	<span className="logo-text">{config.logoText}</span>
 	        	</Link>
 	        </div>
 	        <Lmenu mode={ this.state.mode } />
