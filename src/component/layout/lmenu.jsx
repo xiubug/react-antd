@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { is, fromJS } from 'immutable';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import { Layout, Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
@@ -13,12 +14,15 @@ export class Lmenu extends Component {
 	constructor(props, context) {
 		super(props, context); //后才能用this获取实例化对象
 	}
+	shouldComponentUpdate(nextProps, nextState) {
+        return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state),fromJS(nextState))
+    }
 	render() {
 		const defaultSelectedKey = process.env.NODE_ENV !== 'production' ? [location.pathname.split('/')[location.pathname.split('/').length - 1] || 'home'] : [location.hash.split('/')[location.hash.split('/').length - 1].split('?')[0] || 'home'];
 		return (
 			<Menu theme="dark" mode={this.props.mode} defaultSelectedKeys={defaultSelectedKey}>
 		        <Menu.Item key="home">
-		        <Link to="/">
+		        <Link to="/home">
 	              <Icon type="laptop" />
 	              {!this.props.collapsed && <span className="nav-text">欢迎页</span>}
 	            </Link>

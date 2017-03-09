@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Router } from 'react-router';
+import { is, fromJS } from 'immutable';
 import { Layout, Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 const { Header } = Layout;
@@ -15,6 +16,9 @@ export class Lheader extends Component {
 	constructor(props, context) {
 		super(props, context); //后才能用this获取实例化对象
 	}
+	shouldComponentUpdate(nextProps, nextState) {
+        return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state),fromJS(nextState))
+    }
 	toggle = () => {
 		this.props.toggle(!this.props.collapsed);
   	}

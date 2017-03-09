@@ -4,7 +4,7 @@ import { History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import { config } from '../../config/config';
-import { template } from '../common/mixin'; 
+import { renderData } from '../common/mixin'; 
 // 公共头部
 import { Lheader } from './lheader';
 // 公共菜单
@@ -28,12 +28,14 @@ const SubMenu = Menu.SubMenu;
 class Main extends Component {
 	constructor(props) {
 		super(props);
-		console.log(props);
 		this.state = {
 			collapsed: false,
     		mode: 'inline'
 		};
 	}
+	shouldComponentUpdate(nextProps, nextState) {
+        return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state),fromJS(nextState))
+    }
 	onCollapse = (collapsed) => {
 	    this.setState({
 	      collapsed,
@@ -56,7 +58,7 @@ class Main extends Component {
 	          onCollapse={this.onCollapse}
 	        >
 	        <div className="layout-logo">
-	        	<Link to="/">
+	        	<Link to="/home">
 		        	<img className="logo-img" src={config.logoSrc} />
 		        	<span className="logo-text">{config.logoText}</span>
 	        	</Link>
@@ -75,8 +77,8 @@ class Main extends Component {
 	}
 }
 
-export default template({
-	id: 'index', // 应用关联使用的redex
-	component: Main, // 接收数据的组件入口
-	url: ''
+export default renderData({
+    id: 'layout',  //应用关联使用的redux
+    component: Main, //接收数据的组件入口
+    url: '' //服务器请求的地址
 });

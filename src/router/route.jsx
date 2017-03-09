@@ -94,18 +94,19 @@ const requireAuth = (nextState, replace) => {
 
 const RouteConfig = (
 	<Router history={history}>
-		<Route path="/" component={Roots}> // 所有的访问，都跳转到Roots
-			<Route component={layout} onEnter={requireAuth}>
-				<IndexRoute getComponent={home} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
-				<Route path="user" getComponent={user} onEnter={requireAuth}></Route>
-				<Route path="setting" getComponent={setting} onEnter={requireAuth}></Route>
-				<Route path="adver" getComponent={adver} onEnter={requireAuth}></Route>
-				<Route path="ui/oneui" getComponent={oneui} onEnter={requireAuth}></Route>
-				<Route path="ui/twoui" getComponent={twoui} onEnter={requireAuth}></Route>
-			</Route>
-			<Route path="login" component={login} /> // 一个路由地址，比如访问www.test.com/home,就会跳转到此
-			<Redirect from="*" to="/" /> // 所有的其他未定义的访问路径，都跳转到根路径，比如访问www.test.com/abc, 但是/abc我们没有定义，就会自动跳转到www.test.com, 而www.test.com又会自动跳转到www.test.com/home
+		<Route path="/home" component={layout} onEnter={requireAuth}>
+			<IndexRoute getComponent={home} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
+			<Route path="/home" getComponent={home} onEnter={requireAuth} />
+			<Route path="/user" getComponent={user} onEnter={requireAuth} />
+			<Route path="/setting" getComponent={setting} onEnter={requireAuth} />
+			<Route path="/adver" getComponent={adver} onEnter={requireAuth} />
+			<Route path="/ui/oneui" getComponent={oneui} onEnter={requireAuth} />
+			<Route path="/ui/twoui" getComponent={twoui} onEnter={requireAuth} />
 		</Route>
+		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
+			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
+		</Route>
+		<Redirect from="*" to="/home" />
 	</Router>
 );
 

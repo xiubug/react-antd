@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { is, fromJS } from 'immutable';
 
 import { config } from '../../config/config';
 
@@ -16,6 +17,9 @@ export class Lfooter extends Component {
 	constructor(props, context) {
 		super(props, context); //后才能用this获取实例化对象
 	}
+	shouldComponentUpdate(nextProps, nextState) {
+        return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state),fromJS(nextState))
+    }
 	render() {
 		return (
 			<Footer className="layout-footer">

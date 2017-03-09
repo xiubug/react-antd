@@ -3,8 +3,7 @@ import pureRender from 'pure-render-decorator';
 import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
-import { Tool } from '../../config/tool';
-import { template } from '../common/mixin';
+import { renderData } from '../common/mixin';
 import auth from './auth';
 import { config } from '../../config/config';
 
@@ -60,6 +59,9 @@ class Login extends Component {
     componentDidMount() {
         this.setState({ loginSpinning: false });
     }
+    shouldComponentUpdate(nextProps, nextState) {
+        return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state),fromJS(nextState))
+    }
 	render() {
 		const { getFieldDecorator } = this.props.form;
 		return (	
@@ -109,8 +111,8 @@ Login.contextTypes = {
 
 const Main = Form.create()(Login);
 
-export default template({
-	id: 'login', // 应用关联使用的redex
-	component: Main, // 接收数据的组件入口
-	url: ''
+export default renderData({
+    id: 'login',  //应用关联使用的redux
+    component: Main, //接收数据的组件入口
+    url: '' //服务器请求的地址
 });
