@@ -59,9 +59,6 @@ class Login extends Component {
     componentDidMount() {
         this.setState({ loginSpinning: false });
     }
-    shouldComponentUpdate(nextProps, nextState) {
-        return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state),fromJS(nextState))
-    }
 	render() {
 		const { getFieldDecorator } = this.props.form;
 		return (	
