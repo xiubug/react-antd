@@ -20,8 +20,6 @@ module.exports = {
         chunkFilename: '[name].[chunkhash:5].min.js'
     },
     module: {
-        /* 在打包之前运行，比如语法检查 */
-        preLoaders: [],
         loaders: [{
             test: /\.js$/, // 解析.js,用babel解析器，webpack会自动加载我们配置的.babelrc文件
             exclude: /^node_modules$/,
