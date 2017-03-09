@@ -9,9 +9,8 @@ import { config } from '../../config/config';
 
 import styles from '../../style/login.less';
 
-import { Spin, Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, message } from 'antd';
+import { Spin, Form, Input, Button, message } from 'antd';
 const FormItem = Form.Item;
-const Option = Select.Option;
 
 /* 以类的方式创建一个组件 */
 class Login extends Component {

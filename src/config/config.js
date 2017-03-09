@@ -29,7 +29,7 @@ Tool.paramFormat = data => {
  * @param {any} value
  * @returns
  */
-Tool.localItem = (key, value) => {
+Tool.localItem = function(key, value) {
     if (arguments.length == 1) {
         return localStorage.getItem(key);
     } else {
@@ -44,10 +44,7 @@ Tool.localItem = (key, value) => {
  * @returns
  */
 Tool.removeLocalItem =  (key) => {
-    if (key) {
-        return localStorage.removeItem(key);
-    }
-    return localStorage.removeItem();
+    return key ? localStorage.removeItem(key) : localStorage.removeItem();
 }
 
 export { config, Tool };

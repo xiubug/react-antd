@@ -3,7 +3,7 @@ import pureRender from 'pure-render-decorator';
 import { History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
-import { config } from '../../config/config';
+import { config, Tool } from '../../config/config';
 import { renderData } from '../common/mixin'; 
 // 公共头部
 import { Lheader } from './lheader';
@@ -28,26 +28,30 @@ const SubMenu = Menu.SubMenu;
 class Main extends Component {
 	constructor(props) {
 		super(props);
+		const collapsed = Tool.localItem('COLLAPSED') == 'YES' ? true : false;
 		this.state = {
-			collapsed: false,
-    		mode: 'inline'
+			collapsed: collapsed,
+    		mode: collapsed ? 'vertical' : 'inline', 
 		};
 	}
-	shouldComponentUpdate(nextProps, nextState) {
-        return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state),fromJS(nextState))
-    }
 	onCollapse = (collapsed) => {
 	    this.setState({
 	      collapsed,
 	      mode: collapsed ? 'vertical' : 'inline'
 	    });
+
+	    if(collapsed) Tool.localItem('COLLAPSED', 'YES'); else Tool.localItem('COLLAPSED', 'NO');
 	}
 	toggle = (collapsed) => {
+		if(collapsed) Tool.localItem('COLLAPSED', 'YES'); else Tool.localItem('COLLAPSED', 'NO');
 	    this.setState({
 	      collapsed: collapsed,
 	      mode: collapsed ? 'vertical' : 'inline'
 	    });
   	}
+  	shouldComponentUpdate(nextProps, nextState) {
+        return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state),fromJS(nextState))
+    }
 	render() {
 		// 这个组件是一个包裹组件，所有的路由跳转的页面都会以this.props.children的形式加载到本组件下
 		return (
