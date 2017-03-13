@@ -43,7 +43,7 @@ const history = process.env.NODE_ENV !== 'production' ? browserHistory : hashHis
 // 主页
 const home = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/home').default)
+        cb(null, require('../component/home/home-index').default)
     }, 'home');
 }
 

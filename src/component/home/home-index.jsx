@@ -3,14 +3,12 @@ import pureRender from 'pure-render-decorator';
 import { is, fromJS} from 'immutable';
 import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
 import { connect } from 'react-redux';
-import { renderData } from './common/mixin';
-import { config } from '../config/config';
+import { renderData } from '../common/mixin';
+import { config } from '../../config/config';
 
-import styles from '../style/login.less';
+import styles from '../../style/home.less';
 
-import { Spin, Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, message } from 'antd';
-const FormItem = Form.Item;
-const Option = Select.Option;
+import { Breadcrumb, Icon } from 'antd';
 
 // 测试列表
 class ListItem extends Component {
@@ -43,14 +41,24 @@ class Main extends Component {
         }
     }
 	render() {  
-		return (	
-		<ul>
-            {
-                this.state.data.length > 0 ? this.state.data.map((item, index) => {
-                        return <ListItem key={index} {...item} index={index}/>
-                    }) : null
-            }      
-        </ul>
+		return (
+        <div className="home-container">
+            <Breadcrumb className="home-bread">
+                <Breadcrumb.Item>
+                    <Link to="/home"><Icon type="home" /><span>主页</span></Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>
+                    <Icon type="laptop" /><span>欢迎页</span>
+                </Breadcrumb.Item>
+            </Breadcrumb> 
+            <ul>
+                {
+                    this.state.data.length > 0 ? this.state.data.map((item, index) => {
+                            return <ListItem key={index} {...item} index={index}/>
+                        }) : null
+                }      
+            </ul>   
+        </div>	
 		);
 	}
 }
