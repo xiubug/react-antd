@@ -40,7 +40,14 @@ class Roots extends Component {
 
 const history = process.env.NODE_ENV !== 'production' ? browserHistory : hashHistory;
 
-// 主页
+// 测试
+const test = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../component/test/test-index').default)
+    }, 'test');
+}
+
+// 快速入门
 const home = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('../component/home/home-index').default)
@@ -102,6 +109,7 @@ const RouteConfig = (
 			<Route path="/adver" getComponent={adver} onEnter={requireAuth} />
 			<Route path="/ui/oneui" getComponent={oneui} onEnter={requireAuth} />
 			<Route path="/ui/twoui" getComponent={twoui} onEnter={requireAuth} />
+			<Route path="/test" getComponent={test} onEnter={requireAuth} />
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
