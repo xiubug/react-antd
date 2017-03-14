@@ -5,10 +5,12 @@ import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-
 import { connect } from 'react-redux';
 import { renderData } from '../common/mixin';
 import { config } from '../../config/config';
+// 公共面包屑
+import { Bcrumb } from '../layout/bcrumb';
 
 import styles from '../../style/home.less';
 
-import { Breadcrumb, Icon, Row, Col, Card, Steps, Button, message } from 'antd';
+import { Icon, Row, Col, Card, Steps, Button, message } from 'antd';
 const Step = Steps.Step;
 
 
@@ -43,14 +45,7 @@ class Main extends Component {
         const { current } = this.state;
 		return (
         <div className="home-container">
-            <Breadcrumb className="home-bread">
-                <Breadcrumb.Item>
-                    <Link to="/home"><Icon type="home" /><span>主页</span></Link>
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                    <Icon type="laptop" /><span>快速入门</span>
-                </Breadcrumb.Item>
-            </Breadcrumb> 
+            <Bcrumb title="快速入门" />
             <Row>
             	<Col span={24}>
                     <Card title="项目前言" extra={<a href="https://github.com/sosout/react-antd">如果觉得不错的话，请star一下吧 😊</a>} bordered={false}>
@@ -98,5 +93,5 @@ class Main extends Component {
 export default renderData({
     id: 'home',  //应用关联使用的redux
     component: Main, //接收数据的组件入口
-    url: '/test/queryAll' //服务器请求的地址
+    url: '' //服务器请求的地址
 });
