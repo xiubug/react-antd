@@ -32,14 +32,8 @@ export class Lheader extends Component {
 	render() {
 		return (
 			<Header className="layout-header">
-	            <Icon
-	              className="trigger"
-	              type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
-	              onClick={this.toggle}
-	            />
-	            <Menu
-			        mode="horizontal" onClick={this.logout} className="layout-header-menu"
-			    >
+	            <Icon className="trigger" type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.toggle} />
+	            <Menu mode="horizontal" onClick={this.logout} className="layout-header-menu">
 		        <SubMenu title={<span><Icon type="user" />sosout</span>}>
 		        	<Menu.Item key="logout">注销</Menu.Item>
 		        </SubMenu>

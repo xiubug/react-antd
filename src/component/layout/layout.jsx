@@ -35,12 +35,11 @@ class Main extends Component {
 		};
 	}
 	onCollapse = (collapsed) => {
+		if(collapsed) Tool.localItem('COLLAPSED', 'YES'); else Tool.localItem('COLLAPSED', 'NO');
 	    this.setState({
 	      collapsed,
 	      mode: collapsed ? 'vertical' : 'inline'
 	    });
-
-	    if(collapsed) Tool.localItem('COLLAPSED', 'YES'); else Tool.localItem('COLLAPSED', 'NO');
 	}
 	toggle = (collapsed) => {
 		if(collapsed) Tool.localItem('COLLAPSED', 'YES'); else Tool.localItem('COLLAPSED', 'NO');
@@ -56,18 +55,14 @@ class Main extends Component {
 		// 这个组件是一个包裹组件，所有的路由跳转的页面都会以this.props.children的形式加载到本组件下
 		return (
 		<Layout className="layout">
-	        <Sider
-	          collapsible
-	          collapsed={this.state.collapsed}
-	          onCollapse={this.onCollapse}
-	        >
-	        <div className="layout-logo">
-	        	<Link to="/home">
-		        	<img className="logo-img" src={config.logoSrc} />
-		        	<span className="logo-text">{config.logoText}</span>
-	        	</Link>
-	        </div>
-	        <Lmenu mode={ this.state.mode } />
+	        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+		        <div className="layout-logo">
+		        	<Link to="/home">
+			        	<img className="logo-img" src={config.logoSrc} />
+			        	<span className="logo-text">{config.logoText}</span>
+		        	</Link>
+		        </div>
+	        	<Lmenu mode={ this.state.mode } />
 	        </Sider>
 	        <Layout>
 	          <Lheader collapsed={this.state.collapsed} toggle={ collapsed => this.toggle(collapsed) } />
