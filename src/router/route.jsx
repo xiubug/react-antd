@@ -18,7 +18,7 @@
 
 import React, {Component, PropTypes} from 'react'; // react核心
 import { Router, Route, Redirect, IndexRoute, browserHistory, hashHistory } from 'react-router'; // 创建route所需
-import auth from '../component/login/auth'; // 登录逻辑处理
+import auth from '../component/common/utils/auth'; // 登录逻辑处理
 import layout from '../component/layout/layout'; // 布局界面
 
 import login from '../component/login/login'; // 登录界面
@@ -71,28 +71,28 @@ const icon = (location, cb) => {
 // 系统设置
 const setting = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/setting/setting').default)
+        cb(null, require('../component/setting/setting-index').default)
     }, 'setting');
 }
 
 // 广告管理
 const adver = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/adver/adver').default)
+        cb(null, require('../component/adver/adver-index').default)
     }, 'adver');
 }
 
 // 组件一
 const oneui = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/ui/one').default)
+        cb(null, require('../component/ui/one-index').default)
     }, 'oneui');
 }
 
 // 组件二
 const twoui = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/ui/two').default)
+        cb(null, require('../component/ui/two-index').default)
     }, 'twoui');
 }
 
@@ -113,7 +113,6 @@ const RouteConfig = (
 			<Route path="/home" getComponent={home} onEnter={requireAuth} />
 			<Route path="/general/button" getComponent={button} onEnter={requireAuth} />
 			<Route path="/general/icon" getComponent={icon} onEnter={requireAuth} />
-
 			<Route path="/setting" getComponent={setting} onEnter={requireAuth} />
 			<Route path="/adver" getComponent={adver} onEnter={requireAuth} />
 			<Route path="/ui/oneui" getComponent={oneui} onEnter={requireAuth} />

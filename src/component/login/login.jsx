@@ -3,11 +3,10 @@ import pureRender from 'pure-render-decorator';
 import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
-import { renderData } from '../common/mixin';
-import auth from './auth';
+import { renderData, auth } from '../common/utils/mixin';
 import { config } from '../../config/config';
 
-import styles from '../../style/login.less';
+import styles from './style/login.less';
 
 import { Spin, Form, Input, Button, message } from 'antd';
 const FormItem = Form.Item;
@@ -60,43 +59,44 @@ class Login extends Component {
     }
 	render() {
 		const { getFieldDecorator } = this.props.form;
-		return (	
-		<div className="login-form">
-			<Spin tip="载入中..." spinning={this.state.loginSpinning}>
-				<div className="login-logo">
-			        <img src={config.logoSrc} />
-			        <span>Ant Design</span>
-			    </div>
-				<Form onSubmit={this.handleSubmit}>
-			        <FormItem hasFeedback>
-			          {getFieldDecorator('username', {
-			            rules: [{ required: true, message: '请填写用户名' }],
-			          })(
-			            <Input size="large" placeholder="用户名" />
-			          )}
-			        </FormItem>
-			        <FormItem hasFeedback>
-			          {getFieldDecorator('password', {
-			            rules: [{
-			              required: true, message: '请填写密码',
-			            }, {
-			              validator: this.checkConfirm
-			            }],
-			          })(
-			            <Input size="large" type="password" placeholder="密码" />
-			          )}
-			        </FormItem>
-			        <FormItem>
-			          <Button type="primary" htmlType="submit" size="large" loading={this.state.loginBtnLoading}>{this.state.loginBtnText}</Button>
-			        </FormItem>
-			        <div className="login-account">
-			          <span>账号：sosout</span>
-			          <span>密码：sosout</span>
-			        </div>
-		        </Form>
-	        </Spin>
+		return (
+		<div className="login-container">	
+			<div className="login-form">
+				<Spin tip="载入中..." spinning={this.state.loginSpinning}>
+					<div className="login-logo">
+				        <img src={config.logoSrc} />
+				        <span>Ant Design</span>
+				    </div>
+					<Form onSubmit={this.handleSubmit}>
+				        <FormItem hasFeedback>
+				          {getFieldDecorator('username', {
+				            rules: [{ required: true, message: '请填写用户名' }],
+				          })(
+				            <Input size="large" placeholder="用户名" />
+				          )}
+				        </FormItem>
+				        <FormItem hasFeedback>
+				          {getFieldDecorator('password', {
+				            rules: [{
+				              required: true, message: '请填写密码',
+				            }, {
+				              validator: this.checkConfirm
+				            }],
+				          })(
+				            <Input size="large" type="password" placeholder="密码" />
+				          )}
+				        </FormItem>
+				        <FormItem>
+				          <Button type="primary" htmlType="submit" size="large" loading={this.state.loginBtnLoading}>{this.state.loginBtnText}</Button>
+				        </FormItem>
+				        <div className="login-account">
+				          <span>账号：sosout</span>
+				          <span>密码：sosout</span>
+				        </div>
+			        </Form>
+		        </Spin>
+			</div>
 		</div>
-		 
 		);
 	}
 }

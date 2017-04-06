@@ -2,11 +2,11 @@ import React, { Component, PropTypes } from 'react'; // 引入了React和PropTyp
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { is, fromJS } from 'immutable';
-import { renderData } from '../common/mixin';
+import { renderData } from '../common/utils/mixin';
 import { Icon, Row, Col, Card, Button, Radio } from 'antd';
 const ButtonGroup = Button.Group;
 // 公共面包屑
-import { Bcrumb } from '../layout/bcrumb';
+import { Bcrumb } from '../common/bcrumb';
 
 /* 以类的方式创建一个组件 */
 class Main extends Component {

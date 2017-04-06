@@ -4,5 +4,6 @@ import pureRender from 'pure-render-decorator';
 import { is, fromJS } from 'immutable';
 
 import renderData from './renderData';
+import auth from './auth';
 
-export { renderData };
+export { renderData, auth };

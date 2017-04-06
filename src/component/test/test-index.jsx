@@ -3,10 +3,10 @@ import pureRender from 'pure-render-decorator';
 import { is, fromJS} from 'immutable';
 import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
 import { connect } from 'react-redux';
-import { renderData } from '../common/mixin';
+import { renderData } from '../common/utils/mixin';
 import { config } from '../../config/config';
 
-import styles from '../../style/home.less';
+import styles from '../home/style/home.less';
 
 import { Breadcrumb, Icon } from 'antd';
 

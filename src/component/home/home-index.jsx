@@ -3,12 +3,12 @@ import pureRender from 'pure-render-decorator';
 import { is, fromJS} from 'immutable';
 import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
 import { connect } from 'react-redux';
-import { renderData } from '../common/mixin';
+import { renderData } from '../common/utils/mixin';
 import { config } from '../../config/config';
 // 公共面包屑
-import { Bcrumb } from '../layout/bcrumb';
+import { Bcrumb } from '../common/bcrumb';
 
-import styles from '../../style/home.less';
+import styles from './style/home.less';
 
 import { Icon, Row, Col, Card, Steps, Button, message } from 'antd';
 const Step = Steps.Step;

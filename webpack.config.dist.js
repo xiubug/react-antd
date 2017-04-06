@@ -1,6 +1,7 @@
 var path = require('path'); // 为了得到项目根路径
 var webpack = require('webpack'); // webpack核心
 var ExtractTextPlugin = require('extract-text-webpack-plugin'); // 为了单独打包css
+var CleanPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin'); //根据模板生成最终html文件
 
 var ROOT_PATH = path.resolve(__dirname); // 项目根路径
@@ -69,6 +70,11 @@ module.exports = {
             'process.env': {
                 NODE_ENV: JSON.stringify('production') //定义生产环境
             }
+        }),
+        new CleanPlugin(['antd'], {
+          root: ROOT_PATH,
+          verbose: true,
+          dry: false
         }),
         // 此插件详细教程 http://www.cnblogs.com/haogj/p/5160821.html
         new HtmlWebpackPlugin({  //根据模板插入css/js等生成最终HTML

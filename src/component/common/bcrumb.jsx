@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { is, fromJS } from 'immutable';
 import { Breadcrumb, Icon } from 'antd';
 import { Link } from 'react-router';
-import styles from '../../style/bcrumb.less';
+import styles from './style/bcrumb.less';
 
 /**
  * 公共面包屑

@@ -4,7 +4,7 @@ import { History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import { config, Tool } from '../../config/config';
-import { renderData } from '../common/mixin'; 
+import { renderData } from '../common/utils/mixin'; 
 // 公共头部
 import { Lheader } from './lheader';
 // 公共菜单
@@ -12,8 +12,8 @@ import { Lmenu } from './lmenu';
 // 公共底部
 import { Lfooter } from './lfooter';
 
-// 底部样式
-import '../../style/layout.less';
+// 布局样式
+import './style/layout.less';
 
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { Content, Footer, Sider } = Layout;

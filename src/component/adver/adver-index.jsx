@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'; // 引入了React和PropTyp
 import { connect } from 'react-redux';
 import { is, fromJS} from 'immutable';
 
-import { renderData } from '../common/mixin';
+import { renderData } from '../common/utils/mixin';
 
 /* 以类的方式创建一个组件 */
 class Main extends Component {
