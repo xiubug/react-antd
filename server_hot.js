@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var express = require('express');
+var opn = require('opn');
 var config = require('./webpack.config.hot');
 var proxyMiddleware = require('http-proxy-middleware');
 
@@ -30,8 +31,11 @@ app.get('*', function(req, res) {
     res.sendFile(__dirname + '/index.html')
 });
 
-
+var port = process.env.PORT || 8888;
 /* 启动服务 */
-app.listen(8888, function() {
-    console.log('成功开启8888端口')
+app.listen(port, function() {
+    console.log('成功开启'+ port +'端口');
+    var uri = 'http://localhost:' + port;
+    console.log('Listening at ' + uri + '\n');
+    opn(uri);
 });

@@ -33,6 +33,7 @@
   "homepage": "https://github.com/sosout/react-antd#readme",
   "dependencies": {
     "antd": "^2.7.2",
+    "opn": "^4.0.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
