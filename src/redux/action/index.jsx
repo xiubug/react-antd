@@ -3,7 +3,6 @@ import { Config } from '../../component/mixin';
 
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
-export const GET_DATA_START = 'GET_DATA_START';
 export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
 
 const target = Config.target;
@@ -25,14 +24,6 @@ const receivePosts = (path, json) => {
 	}
 }
 
-// 开始获取数据
-const getDataStart = path => {
-	return {
-		type: GET_DATA_START,
-		path
-	}
-}
-
 // 获取数据成功
 const getDataSuccess = (path, json, success, name) => {
 	return {
@@ -45,16 +36,15 @@ const getDataSuccess = (path, json, success, name) => {
 }
 
 // 手动调用获取数据的action
-export const getData = (path, postData, success, name) => {
+export const getData = (path, postData, success, name, method='GET') => {
 	let url = target + path + Config.paramFormat(postData);
 	return dispatch => {
-		dispatch(getDataStart(postData));
 		return fetch(url, {
-			method: 'GET',
+			method,
+			mode: 'cors',
 			headers: {
 				'Content-Type': 'application/json'
-			},
-			mode: 'cors'
+			}
 		})
 		.then(response => response.json())
 		.then(json => dispatch(getDataSuccess(path, json, success, name)))

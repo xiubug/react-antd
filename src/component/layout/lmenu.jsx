@@ -76,12 +76,6 @@ export class Lmenu extends Component {
 			          <Menu.Item key="9">Option 9</Menu.Item>
 			          <Menu.Item key="10">Option 10</Menu.Item>
 			    </SubMenu>
-			    <Menu.Item key="test">
-		        <Link to="/test">
-	              <Icon type="laptop" />
-	              {!this.props.collapsed && <span className="nav-text">测试</span>}
-	            </Link>
-	            </Menu.Item>
 	        </Menu>
 		)
 	}

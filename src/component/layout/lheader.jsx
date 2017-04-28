@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Router } from 'react-router';
 import { is, fromJS } from 'immutable';
 import { Layout, Menu, Icon } from 'antd';
+import { Config } from '../mixin';
 const SubMenu = Menu.SubMenu;
 const { Header } = Layout;
 
@@ -25,8 +26,10 @@ export class Lheader extends Component {
   	logout= (e) => {
   		// 模拟退出
   		if(e.key == 'logout') {
-	 		delete localStorage.token;
-	  		window.location.reload();
+	 		Config.removeLocalItem(Config.localKey.userToken);
+	  		this.context.router.push({ 
+				pathname: '/login' 
+			});
   		}
   	}
 	render() {
@@ -42,3 +45,7 @@ export class Lheader extends Component {
 		)
 	}
 }
+
+Lheader.contextTypes = {
+    router: React.PropTypes.object.isRequired
+};

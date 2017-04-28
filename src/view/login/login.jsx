@@ -3,7 +3,7 @@ import pureRender from 'pure-render-decorator';
 import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
-import { RenderData, Config, Auth } from '../../component/mixin';
+import { RenderData, Config } from '../../component/mixin';
 
 import styles from './style/login.less';
 
@@ -21,27 +21,44 @@ class Login extends Component {
     		loginSpinning: true
     	};
     }
-  	handleSubmit = (e) => {
+  	handleSubmit = (e) => { // 登录
     	e.preventDefault();
 	    this.props.form.validateFieldsAndScroll((err, values) => {
 		    if (!err) {
-		    	delete localStorage.token;
-		    	this.setState({ loginBtnLoading: true, loginBtnText: '登录中...' });
-		    	Auth.login(values.username, values.password, (res) => {
-		    		if (res) {
-	                    this.context.router.push({
-	                        pathname: '/'
-	                    });
-	                } else {
-	                	message.error('用户名或者密码错误', 1);
-	                    this.setState({ loginBtnLoading: false, loginBtnText: '登录' });
-	                }
-		    	});
-		    	console.log('Received values of form: ', values);
+					let username = values.username, // 用户名
+							password = values.password, // 密码
+							loginParams = { // 登录参数
+								username: username,
+								password: password	
+							};
+					this.setState({ loginBtnLoading: true, loginBtnText: '登录中...' });
+		    	this.props.getData('/user/login', loginParams, (res) => {
+						if(res.length > 0) {
+								Config.localItem(Config.localKey.userToken, (new Date()).getTime()); // 模拟登录成功返回的Token
+								this.context.router.push({ 
+										pathname: '/home' 
+								});
+						} else {
+								message.error(Config.message.loginError);
+								this.setState({ loginBtnLoading: false, loginBtnText: '登录' });
+						}
+					}, 'userLogin', 'POST');
 		    }
 	    });
 	}
-	checkConfirm = (rule, value, callback) => {
+	// 验证用户名
+	checkUsername = (rule, value, callback) => {
+		const form = this.props.form;
+        if (!value) {
+            callback();
+        } else if (!Config.checkEng(value)) {
+	    	callback(Config.message.usernameEng);
+	    } else {
+	    	callback();
+	    }
+	}
+	// 验证密码
+	checkPassword = (rule, value, callback) => {
 		const form = this.props.form;
 	    if (value && this.state.passwordDirty) {
 	    	form.validateFields(['confirm'], { force: true });
@@ -69,20 +86,27 @@ class Login extends Component {
 					<Form onSubmit={this.handleSubmit}>
 				        <FormItem hasFeedback>
 				          {getFieldDecorator('username', {
-				            rules: [{ required: true, message: '请填写用户名' }],
+										initialValue: 'sosout',
+				            rules: [{ 
+											required: true, 
+											message: Config.message.usernameInput 
+										}, {
+				              validator: this.checkUsername
+				            }],
 				          })(
-				            <Input size="large" placeholder="用户名" />
+				            <Input size="large" placeholder="用户名" maxLength="6" />
 				          )}
 				        </FormItem>
 				        <FormItem hasFeedback>
 				          {getFieldDecorator('password', {
 				            rules: [{
-				              required: true, message: '请填写密码',
+				              required: true, 
+											message: Config.message.passwordInput,
 				            }, {
-				              validator: this.checkConfirm
+				              validator: this.checkPassword
 				            }],
 				          })(
-				            <Input size="large" type="password" placeholder="密码" />
+				            <Input size="large" type="password" placeholder="密码" maxLength="6" />
 				          )}
 				        </FormItem>
 				        <FormItem>

@@ -28,16 +28,12 @@ const Main = mySeting => {
         }
         render() {
             return (
-                <div>
-                    <this.props.seting.component {...this.props} state={this.props.state.toJS()} />
-                </div>
+                <this.props.seting.component {...this.props} state={this.props.state.toJS()} />
             );
         }
 
         componentDidMount() { // 获取数据
-            if (this.props.seting.url) {
-                this.props.seting.type == 'GET' ? this.props.fetchGets(this.props.seting.url, this.props.seting.data) : this.props.fetchPosts(this.props.seting.url, this.props.seting.data);
-            }
+            
         }
 
         componentWillReceiveProps(nextProps) {
