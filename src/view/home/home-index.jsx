@@ -3,10 +3,10 @@ import pureRender from 'pure-render-decorator';
 import { is, fromJS} from 'immutable';
 import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
 import { connect } from 'react-redux';
-import { renderData } from '../common/utils/mixin';
-import { config } from '../../config/config';
+import { RenderData } from '../../component/mixin';
+
 // 公共面包屑
-import { Bcrumb } from '../common/bcrumb';
+import { Bcrumb } from '../../component/bcrumb/bcrumb';
 
 import styles from './style/home.less';
 
@@ -90,8 +90,7 @@ class Main extends Component {
 	}
 }
 
-export default renderData({
+export default RenderData({
     id: 'home',  //应用关联使用的redux
-    component: Main, //接收数据的组件入口
-    url: '' //服务器请求的地址
+    component: Main //接收数据的组件入口
 });

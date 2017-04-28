@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'; // 引入了React和PropTyp
 import { connect } from 'react-redux';
 import { is, fromJS} from 'immutable';
 
-import { renderData } from '../common/utils/mixin';
+import { RenderData } from '../../component/mixin';
 
 /* 以类的方式创建一个组件 */
 class Main extends Component {
@@ -24,8 +24,7 @@ class Main extends Component {
 Main.contextTypes = {
 };
 
-export default renderData({
+export default RenderData({
 	id: 'adver', // 应用关联使用的redex
-	component: Main, // 接收数据的组件入口
-	url: ''
+	component: Main // 接收数据的组件入口
 });

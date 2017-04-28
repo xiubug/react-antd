@@ -2,11 +2,12 @@ import React, { Component, PropTypes } from 'react'; // 引入了React和PropTyp
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { is, fromJS } from 'immutable';
-import { renderData } from '../common/utils/mixin';
+import { RenderData } from '../../component/mixin';
 import { Icon, Row, Col, Card, Button, Radio } from 'antd';
 const ButtonGroup = Button.Group;
+
 // 公共面包屑
-import { Bcrumb } from '../common/bcrumb';
+import { Bcrumb } from '../../component/bcrumb/bcrumb';
 
 /* 以类的方式创建一个组件 */
 class Main extends Component {
@@ -184,9 +185,8 @@ class Main extends Component {
 	}
 }
 
-export default renderData({
+export default RenderData({
 	id: 'button', // 应用关联使用的redex
-	component: Main, // 接收数据的组件入口
-	url: ''
+	component: Main // 接收数据的组件入口
 });
 

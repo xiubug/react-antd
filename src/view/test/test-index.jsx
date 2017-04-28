@@ -3,10 +3,7 @@ import pureRender from 'pure-render-decorator';
 import { is, fromJS} from 'immutable';
 import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
 import { connect } from 'react-redux';
-import { renderData } from '../common/utils/mixin';
-import { config } from '../../config/config';
-
-import styles from '../home/style/home.less';
+import { RenderData } from '../../component/mixin';
 
 import { Breadcrumb, Icon } from 'antd';
 
@@ -67,8 +64,7 @@ Main.contextTypes = {
     
 };
 
-export default renderData({
+export default RenderData({
     id: 'test',  //应用关联使用的redux
-    component: Main, //接收数据的组件入口
-    url: '/test/queryAll' //服务器请求的地址
+    component: Main //接收数据的组件入口
 });

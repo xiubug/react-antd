@@ -1,12 +1,12 @@
 import fetch from 'isomorphic-fetch'; // 基于Fetch的语法，在Node端基于http库实现的同构应用的 isomorphic-fetch。
-import {config, Tool} from '../../config/config';
+import { Config } from '../../component/mixin';
 
 export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const GET_DATA_START = 'GET_DATA_START';
 export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
 
-const target = config.target;
+const target = Config.target;
 
 // 开始获取数据
 const requestPosts = path => {
@@ -46,7 +46,7 @@ const getDataSuccess = (path, json, success, name) => {
 
 // 手动调用获取数据的action
 export const getData = (path, postData, success, name) => {
-	let url = target + path + Tool.paramFormat(postData);
+	let url = target + path + Config.paramFormat(postData);
 	return dispatch => {
 		dispatch(getDataStart(postData));
 		return fetch(url, {
@@ -64,7 +64,7 @@ export const getData = (path, postData, success, name) => {
 
 // 页面初次渲染时Get方式获取数据
 export const fetchGets = (path, postData) => {
-	let url = target + path + Tool.paramFormat(postData);
+	let url = target + path + Config.paramFormat(postData);
 	return dispatch => {
 		dispatch(requestPosts(postData));
 		return fetch(url, {

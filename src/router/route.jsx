@@ -18,10 +18,10 @@
 
 import React, {Component, PropTypes} from 'react'; // react核心
 import { Router, Route, Redirect, IndexRoute, browserHistory, hashHistory } from 'react-router'; // 创建route所需
-import auth from '../component/common/utils/auth'; // 登录逻辑处理
+import { Auth } from '../component/mixin'; // 登录逻辑处理
 import layout from '../component/layout/layout'; // 布局界面
 
-import login from '../component/login/login'; // 登录界面
+import login from '../view/login/login'; // 登录界面
 
 /**
  * (路由根目录组件，显示当前符合条件的组件)
@@ -43,62 +43,62 @@ const history = process.env.NODE_ENV !== 'production' ? browserHistory : hashHis
 // 测试
 const test = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/test/test-index').default)
+        cb(null, require('../view/test/test-index').default)
     }, 'test');
 }
 
 // 快速入门
 const home = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/home/home-index').default)
+        cb(null, require('../view/home/home-index').default)
     }, 'home');
 }
 
 // 基础组件-按钮
 const button = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/general/button-index').default)
+        cb(null, require('../view/general/button-index').default)
     }, 'button');
 }
 
 // 基础组件-图标
 const icon = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/general/icon-index').default)
+        cb(null, require('../view/general/icon-index').default)
     }, 'icon');
 }
 
 // 系统设置
 const setting = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/setting/setting-index').default)
+        cb(null, require('../view/setting/setting-index').default)
     }, 'setting');
 }
 
 // 广告管理
 const adver = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/adver/adver-index').default)
+        cb(null, require('../view/adver/adver-index').default)
     }, 'adver');
 }
 
 // 组件一
 const oneui = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/ui/one-index').default)
+        cb(null, require('../view/ui/one-index').default)
     }, 'oneui');
 }
 
 // 组件二
 const twoui = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../component/ui/two-index').default)
+        cb(null, require('../view/ui/two-index').default)
     }, 'twoui');
 }
 
 // 登录验证
 const requireAuth = (nextState, replace) => {
-	if(!auth.loggedIn()) {
+	if(!Auth.loggedIn()) {
 		replace({
 			pathname: '/login',
 			state: { nextPathname: nextState.location.pathname }

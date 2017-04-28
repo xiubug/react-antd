@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { is, fromJS } from 'immutable';
-import { Tool } from '../../config/config';
+import { Config } from '../mixin';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import { Layout, Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
@@ -14,7 +14,7 @@ const SubMenu = Menu.SubMenu;
 export class Lmenu extends Component {
 	constructor(props, context) {
 		super(props, context); //后才能用this获取实例化对象
-		const openKeys = Tool.localItem('OPENKEY') ? [Tool.localItem('OPENKEY')] : [];
+		const openKeys = Config.localItem('OPENKEY') ? [Config.localItem('OPENKEY')] : [];
 		this.state = {
 			openKeys: openKeys
 		};
@@ -31,7 +31,7 @@ export class Lmenu extends Component {
 	    if (latestCloseKey) {
 	      nextOpenKeys = this.getAncestorKeys(latestCloseKey);
 	    }
-	    Tool.localItem('OPENKEY', nextOpenKeys);
+	    Config.localItem('OPENKEY', nextOpenKeys);
 	    this.setState({ openKeys: nextOpenKeys });
 	}
   	getAncestorKeys = (key) => {

@@ -3,8 +3,7 @@ import pureRender from 'pure-render-decorator';
 import { History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
-import { config, Tool } from '../../config/config';
-import { renderData } from '../common/utils/mixin'; 
+import { RenderData, Config } from '../mixin'; 
 // 公共头部
 import { Lheader } from './lheader';
 // 公共菜单
@@ -28,21 +27,21 @@ const SubMenu = Menu.SubMenu;
 class Main extends Component {
 	constructor(props) {
 		super(props);
-		const collapsed = Tool.localItem('COLLAPSED') == 'YES' ? true : false;
+		const collapsed = Config.localItem('COLLAPSED') == 'YES' ? true : false;
 		this.state = {
 			collapsed: collapsed,
     		mode: collapsed ? 'vertical' : 'inline', 
 		};
 	}
 	onCollapse = (collapsed) => {
-		if(collapsed) Tool.localItem('COLLAPSED', 'YES'); else Tool.localItem('COLLAPSED', 'NO');
+		if(collapsed) Config.localItem('COLLAPSED', 'YES'); else Config.localItem('COLLAPSED', 'NO');
 	    this.setState({
 	      collapsed,
 	      mode: collapsed ? 'vertical' : 'inline'
 	    });
 	}
 	toggle = (collapsed) => {
-		if(collapsed) Tool.localItem('COLLAPSED', 'YES'); else Tool.localItem('COLLAPSED', 'NO');
+		if(collapsed) Config.localItem('COLLAPSED', 'YES'); else Config.localItem('COLLAPSED', 'NO');
 	    this.setState({
 	      collapsed: collapsed,
 	      mode: collapsed ? 'vertical' : 'inline'
@@ -58,8 +57,8 @@ class Main extends Component {
 	        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
 		        <div className="layout-logo">
 		        	<Link to="/home">
-			        	<img className="logo-img" src={config.logoSrc} />
-			        	<span className="logo-text">{config.logoText}</span>
+			        	<img className="logo-img" src={Config.logoSrc} />
+			        	<span className="logo-text">{Config.logoText}</span>
 		        	</Link>
 		        </div>
 	        	<Lmenu mode={ this.state.mode } />
@@ -76,8 +75,7 @@ class Main extends Component {
 	}
 }
 
-export default renderData({
+export default RenderData({
     id: 'layout',  //应用关联使用的redux
-    component: Main, //接收数据的组件入口
-    url: '' //服务器请求的地址
+    component: Main //接收数据的组件入口
 });

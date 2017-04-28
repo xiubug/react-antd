@@ -3,7 +3,8 @@ import { Link, IndexLink } from 'react-router';
 import pureRender from 'pure-render-decorator';
 import { is, fromJS } from 'immutable';
 
-import renderData from './renderData';
-import auth from './auth';
+import RenderData from './mixin/RenderData';
+import Config from './mixin/Config';
+import Auth from './mixin/Auth';
 
-export { renderData, auth };
+export { RenderData, Config, Auth };

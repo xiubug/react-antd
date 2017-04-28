@@ -3,8 +3,7 @@ import pureRender from 'pure-render-decorator';
 import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
-import { renderData, auth } from '../common/utils/mixin';
-import { config } from '../../config/config';
+import { RenderData, Config, Auth } from '../../component/mixin';
 
 import styles from './style/login.less';
 
@@ -28,7 +27,7 @@ class Login extends Component {
 		    if (!err) {
 		    	delete localStorage.token;
 		    	this.setState({ loginBtnLoading: true, loginBtnText: '登录中...' });
-		    	auth.login(values.username, values.password, (res) => {
+		    	Auth.login(values.username, values.password, (res) => {
 		    		if (res) {
 	                    this.context.router.push({
 	                        pathname: '/'
@@ -64,7 +63,7 @@ class Login extends Component {
 			<div className="login-form">
 				<Spin tip="载入中..." spinning={this.state.loginSpinning}>
 					<div className="login-logo">
-				        <img src={config.logoSrc} />
+				        <img src={Config.logoSrc} />
 				        <span>Ant Design</span>
 				    </div>
 					<Form onSubmit={this.handleSubmit}>
@@ -107,8 +106,7 @@ Login.contextTypes = {
 
 const Main = Form.create()(Login);
 
-export default renderData({
+export default RenderData({
     id: 'login',  //应用关联使用的redux
-    component: Main, //接收数据的组件入口
-    url: '' //服务器请求的地址
+    component: Main //接收数据的组件入口
 });

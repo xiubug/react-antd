@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { is, fromJS } from 'immutable';
 
-import { config } from '../../config/config';
+import { Config } from '../mixin';
 
 import { Layout } from 'antd';
 const { Footer } = Layout;
@@ -23,7 +23,7 @@ export class Lfooter extends Component {
 	render() {
 		return (
 			<Footer className="layout-footer">
-	            { config.footerText }
+	            { Config.footerText }
 	        </Footer>
 		)
 	}

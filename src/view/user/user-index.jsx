@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'; // 引入了React和PropTypes
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
-import { renderData } from '../common/utils/mixin';
+import { RenderData } from '../../component/mixin';
 
 /* 以类的方式创建一个组件 */
 class Main extends Component {
@@ -14,7 +14,7 @@ class Main extends Component {
 	render() {
 		return (	
 		<div>
-			组件一
+			用户管理
 		</div>
 		);
 	}
@@ -23,9 +23,7 @@ class Main extends Component {
 Main.contextTypes = {
 };
 
-export default renderData({
-	id: 'oneui', // 应用关联使用的redex
-	component: Main, // 接收数据的组件入口
-	url: ''
+export default RenderData({
+    id: 'user',  //应用关联使用的redux
+    component: Main //接收数据的组件入口
 });
-
