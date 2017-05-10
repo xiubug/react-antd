@@ -83,6 +83,8 @@ npm run dist （发布生产版本，对代码进行混淆压缩，提取公共�
     
 # 性能优化
 
+## Immutable 详解及 React 中实践 (https://github.com/camsong/blog/issues/3)
+
 ## react 实现pure render的时候，bind(this)隐患
 ```javascript
 export default class Parent extends Component {
