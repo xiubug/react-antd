@@ -15,11 +15,14 @@
 [线上demo](http://antd.sosout.com/)
 
 ## 关于我自己
+
 >  使用技术： react + redux + immutable + less + ES6/7 + webpack + fetch + react-router + antd(1.x)
 
 >  项目说明： 此项目是本人空余时间搭建的。希望大家提供宝贵的意见和建议，谢谢。
 
->  邮&emsp;&emsp;箱： sosout@yeah.net
+>  JS/React/Vue/Angular前端群： 599399742
+
+>  邮&emsp;&emsp;&ensp;箱： sosout@139.com
 
 >  个人网站： http://www.sosout.com/
 
@@ -28,11 +31,6 @@
 >  个人简书： http://www.jianshu.com/users/23b9a23b8849/latest_articles
 
 >  segmentfault：https://segmentfault.com/u/sosout
-
-### 小广告
-```
-  JS/React/Vue/Angular前端：599399742
-```
 
 ### 下载
 
