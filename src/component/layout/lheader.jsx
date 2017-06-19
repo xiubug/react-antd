@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Router } from 'react-router';
 import { is, fromJS } from 'immutable';
 import { Layout, Menu, Icon } from 'antd';
-import { Config } from '../mixin';
+import Config from '../../config/index';
 const SubMenu = Menu.SubMenu;
 const { Header } = Layout;
 

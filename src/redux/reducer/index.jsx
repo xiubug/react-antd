@@ -1,28 +1,24 @@
-import Immutable from 'immutable';
-import {REQUEST_POSTS, RECEIVE_POSTS, GET_DATA_SUCCESS} from '../action/index';
+import { fromJS } from 'immutable';
+import { LOADING } from '../constants/dispatchTypes';
 
-const defaultlState = Immutable.fromJS({data: {}, isFetching: false});
+import Login from './login/loginReducer'; // 登录界面
 
-//首次渲染时获取数据
-export const fetchData = (state = defaultlState , action = {}) => {
-    switch(action.type){
-        case REQUEST_POSTS:
-            return state.set('isFetching',true);
-        case RECEIVE_POSTS:
-            return Immutable.Map({'data':action.json,'isFetching':false});//返回一个新的state
+// 初始化state数据
+const initialState = {
+    loading: false
+};
+
+/**
+ * 公共reducer
+ * @return
+ */
+const Common = (state = initialState, action) => {
+    switch(action.type) {
+        case LOADING: // 用于页面和区块的加载中状态
+            return fromJS(state).merge({loading: action.loading}).toJS();
         default:
             return state;
     }
 }
 
-// 手动获取数据
-export const requestData = (state = {}, action = {}) => {
-	switch(action.type) {
-		case GET_DATA_SUCCESS:
-			action.success(action.json);
-			state[action.name] = action.json;
-			return state;
-		default:
-			return state;
-	}
-}
+export { Common, Login};

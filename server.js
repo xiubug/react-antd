@@ -26,7 +26,7 @@ server.app.get('*', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-// 监听8888端口
-server.listen(8888, function() {
+// 监听8082端口
+server.listen(8082, function() {
     console.log('成功开启8888端口');
 });

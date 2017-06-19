@@ -5,8 +5,16 @@
 [![Ant Design](https://img.shields.io/badge/ant--design-^2.7.2-yellowgreen.svg?style=flat-square)](https://github.com/ant-design/ant-design)
 
 [![MIT](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+
+## 最新更新
+>  webpack版本升级2，同时引入Yarn缓存下载的每个包以及happypack利用了多进程，同时还利用缓存来使得rebuild 更快等
+
+>  Redux使用调整
+
+> 路由模式更改为浏览器模式
+
 ## 前言
->  本工程主要基于react + redux + immutable + less + ES6/7 + webpack + fetch + react-router + antd(1.x)实现的SPA后台管理系统模板。
+>  本工程主要基于react + redux + immutable + less + ES6/7 + webpack2.0 + fetch + react-router + antd(1.x)实现的SPA后台管理系统模板。
 
 >  如果觉得不错的话，请star一下吧 😊
 
@@ -15,7 +23,7 @@
 [线上demo](http://antd.sosout.com/)
 
 ## 关于我自己
->  使用技术： react + redux + immutable + less + ES6/7 + webpack + fetch + react-router + antd(1.x)
+>  使用技术： react + redux + immutable + less + ES6/7 + webpack2.0 + fetch + react-router + antd(1.x)
 
 >  项目说明： 此项目是本人空余时间搭建的。希望大家提供宝贵的意见和建议，谢谢。
 
@@ -41,21 +49,19 @@ cd react-antd
 
 ### 安装
 ```bush
-// 安装前请先确保已安装node和npm
-// 需要提前在全局安装webpack和webpack-dev-server,如果已安装请忽略
-npm install webpack -g
-npm install webpack-dev-server -g
 
-// 安装成功后,再安装依赖
-npm install
+// 安装前请先确保已安装node和npm
+
+// 安装成功后,再安装依赖，如果之前有用npm安装过，请先删掉node_modules
+yarn install
 ```
 ### 运行
 ```bush
-npm run dev （正常编译模式，注意：index.html里必须手动引用app.css，<link href="/antd/dist/app.css" rel="stylesheet" />，否则没有样式）
+yarn run dev （正常编译模式，注意：index.html里必须手动引用app.css，<link href="/antd/dist/app.css" rel="stylesheet" />，否则没有样式）
 
-npm run hot （热替换编译模式，注意：热替换模式下index.html里去掉引用app.css）
+yarn run hot （热替换编译模式，注意：热替换模式下index.html里去掉引用app.css）
   
-npm run dist （发布生产版本，对代码进行混淆压缩，提取公共代码，分离css文件）
+yarn run dist （发布生产版本，对代码进行混淆压缩，提取公共代码，分离css文件）
 ```
 
 ### 访问
@@ -73,10 +79,10 @@ npm run dist （发布生产版本，对代码进行混淆压缩，提取公共�
 
   	1. 初始化项目目录;
 
-  	2. webpack配置完成; 
+  	2. webpack版本升级(webpack2.0)，并加上yarn，happypack等(最新迭代)；
 
   	3. 登录退出;
 
   	4. 整体布局;
 
-  	5. 菜单映射路由;
+  	5. 菜单映射路由(路由模式更改为浏览器模式);

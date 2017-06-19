@@ -19,7 +19,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 
 // 代理服务器
-app.use('/shopro', proxyMiddleware({
+app.use('/common', proxyMiddleware({
     target: 'http://admin.sosout.com',
     changeOrigin: true
 }));
@@ -31,11 +31,9 @@ app.get('*', function(req, res) {
     res.sendFile(__dirname + '/index.html')
 });
 
-var port = process.env.PORT || 8888;
+
 /* 启动服务 */
-app.listen(port, function() {
-    console.log('成功开启'+ port +'端口');
-    var uri = 'http://localhost:' + port;
-    console.log('Listening at ' + uri + '\n');
-    opn(uri);
+app.listen(8082, 'localhost', function() {
+    console.log('成功开启8082端口');
+    opn('http://localhost:8082');
 });

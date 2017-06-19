@@ -3,7 +3,8 @@ import pureRender from 'pure-render-decorator';
 import { History, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
-import { RenderData, Config } from '../mixin'; 
+import Config from '../../config/index';
+
 // 公共头部
 import { Lheader } from './lheader';
 // 公共菜单
@@ -75,7 +76,4 @@ class Main extends Component {
 	}
 }
 
-export default RenderData({
-    id: 'layout',  //应用关联使用的redux
-    component: Main //接收数据的组件入口
-});
+export default Main;

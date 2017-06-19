@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'; // 引入了React和PropTyp
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { is, fromJS } from 'immutable';
-import { RenderData } from '../../component/mixin';
 import { Icon, Row, Col, Card, Button, Radio } from 'antd';
 const ButtonGroup = Button.Group;
 
@@ -185,8 +184,6 @@ class Main extends Component {
 	}
 }
 
-export default RenderData({
-	id: 'button', // 应用关联使用的redex
-	component: Main // 接收数据的组件入口
-});
+export default Main;
+
 

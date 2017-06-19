@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { is, fromJS } from 'immutable';
-import { Config } from '../mixin';
+import Config from '../../config/index';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import { Layout, Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
@@ -48,6 +48,12 @@ export class Lmenu extends Component {
 			        <Link to="/home">
 		              <Icon type="laptop" />
 		              {!this.props.collapsed && <span className="nav-text">快速入门</span>}
+		            </Link>
+	            </Menu.Item>
+                <Menu.Item key="user">
+			        <Link to="/user">
+		              <Icon type="user" />
+		              {!this.props.collapsed && <span className="nav-text">用户管理</span>}
 		            </Link>
 	            </Menu.Item>
 	            <SubMenu key="general" title={<span><Icon type="team" /><span className="nav-text">基础组件</span></span>}>

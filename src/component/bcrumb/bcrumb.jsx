@@ -22,7 +22,7 @@ export class Bcrumb extends Component {
                     <Link to="/home"><Icon type="home" /><span>主页</span></Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>
-                    <Icon type="laptop" /><span>{ this.props.title }</span>
+                    <Icon type={this.props.icon ? this.props.icon : 'laptop'} /><span>{ this.props.title }</span>
                 </Breadcrumb.Item>
             </Breadcrumb> 
 		)
