@@ -92,7 +92,7 @@ yarn run dist （发布生产版本，对代码进行混淆压缩，提取公共
     
 # 性能优化
 
-## 如何正确地在React中处理事件，参考官网(https://facebook.github.io/react/docs/handling-events.html)
+## [如何正确地在React中处理事件](https://facebook.github.io/react/docs/handling-events.html)
 
 #### 1、构造器内绑定this
 ```javascript
