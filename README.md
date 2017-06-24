@@ -6,9 +6,11 @@
 
 [![MIT](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
-## 最新更新
->  [Redux源码解析-Redux的架构](https://github.com/sosout/redux-source-analyse)
+## 相关推荐
+[Redux源码解析-Redux的架构](https://github.com/sosout/redux-source-analyse)
 
+
+## 最新更新
 >  webpack版本升级2，同时引入Yarn缓存下载的每个包以及happypack利用了多进程，同时还利用缓存来使得rebuild 更快等
 
 >  Redux使用调整
