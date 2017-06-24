@@ -11,3 +11,4 @@ dist/*
 antd
 antd/*
 .happypack
+.happypack/
