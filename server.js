@@ -2,6 +2,8 @@ var webpack = require('webpack'); // 打包工具
 var WebpackDevServer = require('webpack-dev-server'); // 一个小型的Node.js Express服务器
 var config = require('./webpack.config.dev'); // 正常编译配置
 
+var opn = require('opn');
+
 // 代理服务器
 var proxy = [{
     path: '/*/*', //必须得有一个文件地址，如果顶层文件夹名字不同，则用/*代替
@@ -26,7 +28,12 @@ server.app.get('*', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-// 监听8082端口
+var port = process.env.PORT || 8082;
+
+// 监听服务
 server.listen(8082, function() {
-    console.log('成功开启8888端口');
+    console.log('成功开启'+ port +'端口');
+    var uri = 'http://localhost:' + port;
+    console.log('Listening at ' + uri + '\n');
+    opn(uri);
 });

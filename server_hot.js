@@ -32,8 +32,12 @@ app.get('*', function(req, res) {
 });
 
 
+var port = process.env.PORT || 8082;
+
 /* 启动服务 */
-app.listen(8082, 'localhost', function() {
-    console.log('成功开启8082端口');
-    opn('http://localhost:8082');
+app.listen(port, 'localhost', function() {
+    console.log('成功开启'+ port +'端口');
+    var uri = 'http://localhost:' + port;
+    console.log('Listening at ' + uri + '\n');
+    opn(uri);
 });
