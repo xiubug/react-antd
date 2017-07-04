@@ -30,8 +30,8 @@ server.app.get('*', function(req, res) {
 
 var port = process.env.PORT || 8082;
 
-// 监听服务
-server.listen(8082, function() {
+/* 启动服务 */
+server.listen(port, function() {
     console.log('成功开启'+ port +'端口');
     var uri = 'http://localhost:' + port;
     console.log('Listening at ' + uri + '\n');
