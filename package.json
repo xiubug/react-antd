@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "dev": "node server.js",
-    "hot": "node server_hot.js",
     "dist": "yarn run dll && cross-env NODE_ENV=production webpack --display-error-details --config webpack.config.dist.js --progress --colors -p",
     "dll": "webpack --config webpack.dll.config.js --progress --colors -p"
   },

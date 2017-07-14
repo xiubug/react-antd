@@ -64,15 +64,13 @@ yarn install
 ```
 ### 运行
 ```bush
-yarn run dev （正常编译模式，注意：index.html里必须手动引用app.css，<link href="/antd/dist/app.css" rel="stylesheet" />，否则没有样式）
-
-yarn run hot （热替换编译模式，注意：热替换模式下index.html里去掉引用app.css）
+yarn run dev （开发版本，用于开发使用，热加载）
   
 yarn run dist （发布生产版本，对代码进行混淆压缩，提取公共代码，分离css文件）
 ```
 
 ### 访问
-在浏览器地址栏输入[http://127.0.0.1:8082](http://127.0.0.1:8082)
+在浏览器地址栏输入[http://127.0.0.1:8888](http://127.0.0.1:8888)
 
 ### 目标功能
 - [x] 登录页面

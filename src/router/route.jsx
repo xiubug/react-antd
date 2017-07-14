@@ -47,11 +47,11 @@ const home = (location, cb) => {
     }, 'home');
 }
 
-// 用户管理
-const user = (location, cb) => {
+// 百度图表-折线图
+const chartLine = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('../containers/user/userIndex').default)
-    }, 'user');
+        cb(null, require('../containers/charts/lines').default)
+    }, 'chartLine');
 }
 
 // 基础组件-按钮
@@ -66,6 +66,13 @@ const icon = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('../containers/general/iconIndex').default)
     }, 'icon');
+}
+
+// 用户管理
+const user = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/user/userIndex').default)
+    }, 'user');
 }
 
 // 系统设置
@@ -112,9 +119,10 @@ const RouteConfig = (
 		<Route path="/home" component={layout} onEnter={requireAuth}>
 			<IndexRoute getComponent={home} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
 			<Route path="/home" getComponent={home} onEnter={requireAuth} />
-            <Route path="/user" getComponent={user} onEnter={requireAuth} />
+            <Route path="/chart/line" getComponent={chartLine} onEnter={requireAuth} />
 			<Route path="/general/button" getComponent={button} onEnter={requireAuth} />
 			<Route path="/general/icon" getComponent={icon} onEnter={requireAuth} />
+            <Route path="/user" getComponent={user} onEnter={requireAuth} />
 			<Route path="/setting" getComponent={setting} onEnter={requireAuth} />
 			<Route path="/adver" getComponent={adver} onEnter={requireAuth} />
 			<Route path="/ui/oneui" getComponent={oneui} onEnter={requireAuth} />

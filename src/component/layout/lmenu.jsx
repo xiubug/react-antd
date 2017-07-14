@@ -50,16 +50,19 @@ export class Lmenu extends Component {
 		              {!this.props.collapsed && <span className="nav-text">快速入门</span>}
 		            </Link>
 	            </Menu.Item>
+                <SubMenu key="chart" title={<span><Icon type="dot-chart" /><span className="nav-text">百度图表</span></span>}>
+                    <Menu.Item key="line"><Link to="/chart/line">折线图</Link></Menu.Item>
+	            </SubMenu>
+	            <SubMenu key="general" title={<span><Icon type="team" /><span className="nav-text">基础组件</span></span>}>
+                    <Menu.Item key="button"><Link to="/general/button">按钮</Link></Menu.Item>
+                    <Menu.Item key="icon"><Link to="/general/icon">图标</Link></Menu.Item>
+	            </SubMenu>
                 <Menu.Item key="user">
 			        <Link to="/user">
 		              <Icon type="user" />
 		              {!this.props.collapsed && <span className="nav-text">用户管理</span>}
 		            </Link>
 	            </Menu.Item>
-	            <SubMenu key="general" title={<span><Icon type="team" /><span className="nav-text">基础组件</span></span>}>
-	              <Menu.Item key="button"><Link to="/general/button">按钮</Link></Menu.Item>
-	              <Menu.Item key="icon"><Link to="/general/icon">图标</Link></Menu.Item>
-	            </SubMenu>
 	            <Menu.Item key="setting">
 	            <Link to="/setting">
 	              <Icon type="setting" />
