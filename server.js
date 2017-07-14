@@ -18,8 +18,6 @@ app.use(require('webpack-dev-middleware')(compiler, {
     }
 }));
 
-var opn = require('opn');
-
 // 代理服务器
 app.use('/common', proxyMiddleware({
     target: 'http://admin.sosout.com',
@@ -33,8 +31,8 @@ app.get('*', function(req, res) {
     res.sendFile(__dirname + '/index.html')
 });
 
-var port = process.env.PORT || 8082;
 
+var port = process.env.PORT || 8082;
 
 /* 启动服务 */
 app.listen(port, 'localhost', function() {
