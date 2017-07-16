@@ -1,12 +1,10 @@
-import React, { Component, PropTypes } from 'react'; // 引入了React和PropTypes
-import pureRender from 'pure-render-decorator';
-import { Router, Route, IndexRoute, browserHistory, History, Link } from 'react-router';
+import React, { Component } from 'react'; // 引入了React
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import Config from '../../config/index';
 
-import { goLogin } from '../../redux/action/login/loginAction';
+import { initialState, goLogin } from '../../redux/action/login/loginAction';
 
 import styles from './style/login.less';
 
@@ -19,7 +17,6 @@ class Login extends Component {
     	super(props);
     	this.state = {
     		passwordDirty: false,
-    		loginBtnLoading: false,
     		loginBtnText: '登录'
     	};
     }
@@ -28,7 +25,11 @@ class Login extends Component {
      * 在生命周期中的这个时间点，组件拥有一个 DOM 展现，
      * 你可以通过 this.getDOMNode() 来获取相应 DOM 节点。
      */
-    componentDidMount() { }
+    componentDidMount() { 
+        const {actions} = this.props;
+        // 初始化数据
+        actions.initialState();
+    }
   	handleSubmit = (e) => { // 登录
     	e.preventDefault();
         const {actions, form} = this.props;
@@ -40,7 +41,6 @@ class Login extends Component {
                         username: username,
                         password: password	
                     };
-				this.setState({ loginBtnLoading: true, loginBtnText: '登录中...' });
 		        actions.goLogin(loginParams);
 		    }
 	    });
@@ -56,7 +56,6 @@ class Login extends Component {
 	    	callback();
 	    }
 	}
-
 	// 验证密码
 	checkPassword = (rule, value, callback) => {
 		const form = this.props.form;
@@ -66,8 +65,8 @@ class Login extends Component {
 	    callback();
 	}
 	render() {
-        const { loading } = this.props;
-		const { getFieldDecorator } = this.props.form;
+        const { loading, loginInfo, form } = this.props;
+        const getFieldDecorator = form.getFieldDecorator;
 		return (
 		<div className="login-container">	
 			<div className="login-form">
@@ -78,36 +77,21 @@ class Login extends Component {
 				    </div>
 					<Form onSubmit={this.handleSubmit}>
 				        <FormItem hasFeedback>
-				          {getFieldDecorator('username', {
-										initialValue: 'sosout',
-				            rules: [{ 
-											required: true, 
-											message: Config.message.usernameInput 
-										}, {
-				              validator: this.checkUsername
-				            }],
-				          })(
-				            <Input size="large" placeholder="用户名" maxLength="6" />
-				          )}
+                            {getFieldDecorator('username', { initialValue: 'sosout', rules: [{ required: true, message: Config.message.usernameInput }, { validator: this.checkUsername }] })(
+                                <Input size="large" placeholder="用户名" maxLength="6" />
+                            )}
 				        </FormItem>
 				        <FormItem hasFeedback>
-				          {getFieldDecorator('password', {
-				            rules: [{
-				              required: true, 
-											message: Config.message.passwordInput,
-				            }, {
-				              validator: this.checkPassword
-				            }],
-				          })(
-				            <Input size="large" type="password" placeholder="密码" maxLength="6" />
-				          )}
+                            {getFieldDecorator('password', { rules: [{ required: true, message: Config.message.passwordInput }, { validator: this.checkPassword }] })(
+                                <Input size="large" type="password" placeholder="密码" maxLength="6" />
+                            )}
 				        </FormItem>
 				        <FormItem>
-				          <Button type="primary" htmlType="submit" size="large" loading={this.state.loginBtnLoading}>{this.state.loginBtnText}</Button>
+				            <Button type="primary" htmlType="submit" size="large" loading={loginInfo.length > 0 ? true : false}>{loginInfo.length > 0 ? '登录中...' : '登录'}</Button>
 				        </FormItem>
 				        <div className="login-account">
-				          <span>账号：sosout</span>
-				          <span>密码：sosout</span>
+                            <span>账号：sosout</span>
+                            <span>密码：sosout</span>
 				        </div>
 			        </Form>
 		        </Spin>
@@ -116,10 +100,6 @@ class Login extends Component {
 		);
 	}
 }
-
-Login.contextTypes = {
-    router: React.PropTypes.object.isRequired
-};
 
 const LoginForm = Form.create()(Login);
 
@@ -134,7 +114,7 @@ const mapStateToProps = (state, ownProps) => {
 
 // 将 action 作为 props 绑定到 Product 上。
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    actions: bindActionCreators({ goLogin }, dispatch)
+    actions: bindActionCreators({ initialState, goLogin }, dispatch)
 });
 
 const Main = connect(mapStateToProps, mapDispatchToProps)(LoginForm); // 连接redux

@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { LOGIN_SUCCESS } from '../../constants/loginTypes';
+import { INITIAL_STATE, RES_LOGIN } from '../../constants/loginTypes';
 
 // 初始化state数据
 const initialState = {
@@ -12,7 +12,9 @@ const initialState = {
  */
 const Login = (state = initialState, action) => {
     switch(action.type) {
-        case LOGIN_SUCCESS: // 登录成功
+        case INITIAL_STATE: // 初始化state数据
+            return fromJS(state).merge({loginInfo: []}).toJS();
+        case RES_LOGIN: // 登录成功
             return fromJS(state).merge({loginInfo: action.res}).toJS();
         default:
             return state;

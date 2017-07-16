@@ -5,7 +5,7 @@
 import { Message } from 'antd';
 import { browserHistory } from 'react-router';
 import Config from '../../../config/index';
-import { LOGIN_SUCCESS } from '../../constants/loginTypes';
+import { RES_LOGIN, INITIAL_STATE } from '../../constants/loginTypes';
 import LoginService from '../../../services/loginService';
 import { loading } from '../index';
 
@@ -13,10 +13,20 @@ import { loading } from '../index';
  * 登录成功
  * @return
  */
-const loginSuccess = (params, res) => {
+const resLogin = (res) => {
     return {
-        type: LOGIN_SUCCESS,
+        type: RES_LOGIN,
         res
+    }
+}
+
+/**
+ * 初始化数据
+ * @return
+ */
+export const initialState = () => {
+    return {
+        type: INITIAL_STATE
     }
 }
 
@@ -32,11 +42,12 @@ export const goLogin = (params) => {
         dispatch(loading(true));
         LoginService.goLogin(params, (res) => {
             dispatch(loading(false));
+            dispatch(resLogin(res));
             if(res.length > 0) {
                 Config.localItem(Config.localKey.userToken, (new Date()).getTime()); // 模拟登录成功返回的Token
                 browserHistory.push('/home');
             } else {
-                Message.error(res.msg);
+                Message.error('用户名或密码错误');
             }
         })
     }
