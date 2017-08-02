@@ -7,6 +7,8 @@ var HappyPack = require('happypack');
 var happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length});
 // var bundleConfig = require("./antd/dist/bundle-config.json");
 
+// var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; // 分析包体依赖
+
 // 定义地址
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'src'); //__dirname 中的src目录，以此类推
@@ -73,6 +75,7 @@ module.exports = {
             hash: false,
         }),
         new ExtractTextPlugin('[name].css'),
+        // new BundleAnalyzerPlugin(),
         new webpack.HotModuleReplacementPlugin(), // 热更新插件
         new webpack.NoEmitOnErrorsPlugin(), // 即使有错误也不中断运行
         new HappyPack({

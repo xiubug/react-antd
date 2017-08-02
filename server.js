@@ -8,6 +8,9 @@ var app = express();
 var compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
+    quiet: true, // 不显示控制台信息
+    noInfo: true, // 不显示控制台信息（仅警告和错误）
+    lazy: false, // 不切换懒惰模式
     publicPath: config.output.publicPath,
     hot: true,  // 是否启用热更新
     historyApiFallback: true, // 所有的url路径均跳转到index.html,需要设置为true，否则比如访问localhost:8888,就跳转不到/home页
@@ -15,16 +18,19 @@ app.use(require('webpack-dev-middleware')(compiler, {
     progress: true, // 在控制台输出webpack的编译进度
     stats: {
         colors: true // 不同类型的信息用不同的颜色显示
+    },
+    headers: {
+        'Access-Control-Allow-Origin': '*'
     }
 }));
+
+app.use(require('webpack-hot-middleware')(compiler));
 
 // 代理服务器
 app.use('/common', proxyMiddleware({
     target: 'http://admin.sosout.com',
     changeOrigin: true
 }));
-
-app.use(require('webpack-hot-middleware')(compiler));
 
 //将其他路由，全部返回index.html
 app.get('*', function(req, res) {
