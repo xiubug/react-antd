@@ -106,22 +106,6 @@ module.exports = {
             // (选择所有被选 chunks 的子 chunks)
             minChunks: 3,
         }),
-        // Uglify 加密压缩源代码
-        new ParallelUglifyPlugin({
-            include: BUILD_PATH,
-            workerCount: os.cpus().length,
-            uglifyJS:{
-                output: {
-                    comments: false, // 删除代码中所有注释
-                    max_line_len: 50000
-                },
-                compress: {
-                    warnings: false, // 忽略警告
-                    drop_debugger: true,
-                    drop_console: true
-                }
-            }
-        }),
         new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
         new HappyPack({
             id: 'js',
@@ -158,7 +142,23 @@ module.exports = {
         new webpack.DllReferencePlugin({
             context: __dirname,
             manifest: require('./antd/dist/bundle.manifest.json')
-        })
+        }),
+        // Uglify 加密压缩源代码
+        new ParallelUglifyPlugin({
+            // include: BUILD_PATH,
+            workerCount: os.cpus().length,
+            uglifyJS:{
+                output: {
+                    comments: false, // 删除代码中所有注释
+                    max_line_len: 50000
+                },
+                compress: {
+                    warnings: false, // 忽略警告
+                    drop_debugger: true,
+                    drop_console: true
+                }
+            }
+        }),
     ],
     // 配置额外的解决方案
     resolve: {
