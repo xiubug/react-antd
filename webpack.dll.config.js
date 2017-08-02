@@ -22,7 +22,7 @@ module.exports = {
     output: {
         publicPath: '/dist/',
         path:  BUILD_PATH,
-        filename: '[name].js',
+        filename: '[name].[chunkhash].js',
         library: '[name]_library'
     },
     plugins: [
