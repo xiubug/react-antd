@@ -7,6 +7,8 @@
 [![MIT](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
 ## 相关推荐
+[基于vue + vuex + less + ES6/7 + webpack + fetch + vue-router + store + element-ui实现的SPA后台管理系统模板](https://github.com/sosout/vue2-element)
+
 [Redux源码解析-Redux的架构](https://github.com/sosout/redux-source-analyse)
 
 [Immutable源码解析-Immutable的架构](https://github.com/sosout/immutable-source-analyse)
