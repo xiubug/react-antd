@@ -156,6 +156,13 @@ const xinlianxin= (location, cb) => {
     }, 'xinlianxin');
 }
 
+// 成长驿站社会组织服务中心
+const chengzhangyizhan= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/chengzhangyizhan/chengzhangyizhanIndex').default)
+    }, 'chengzhangyizhan');
+}
+
 const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/home" component={layout} onEnter={requireAuth}>
@@ -175,6 +182,7 @@ const RouteConfig = (
             <Route path="/lexinshehuizuzhi" getComponent={lexinshehuizuzhi} onEnter={requireAuth} />
             <Route path="/shidujiating" getComponent={shidujiating} onEnter={requireAuth} />
             <Route path="/xinlianxin" getComponent={xinlianxin} onEnter={requireAuth} />
+            <Route path="/chengzhangyizhan" getComponent={chengzhangyizhan} onEnter={requireAuth} />
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
