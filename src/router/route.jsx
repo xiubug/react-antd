@@ -114,6 +114,13 @@ const requireAuth = (nextState, replace) => {
 	}
 }
 
+// 民北社区雷锋角
+const leifengjiao = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/leifengjiao/leifengjiaoIndex').default)
+    }, 'leifengjiao');
+}
+
 const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/home" component={layout} onEnter={requireAuth}>
@@ -127,6 +134,7 @@ const RouteConfig = (
 			<Route path="/adver" getComponent={adver} onEnter={requireAuth} />
 			<Route path="/ui/oneui" getComponent={oneui} onEnter={requireAuth} />
 			<Route path="/ui/twoui" getComponent={twoui} onEnter={requireAuth} />
+            <Route path="/leifengjiao" getComponent={leifengjiao} onEnter={requireAuth} />
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home

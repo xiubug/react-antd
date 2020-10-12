@@ -75,6 +75,11 @@ export class Lmenu extends Component {
 	              {!this.props.collapsed && <span className="nav-text">广告管理</span>}
 	            </Link>
 	            </Menu.Item>
+				<Menu.Item key="leifengjiao">
+				<Link to="/leifengjiao">
+					{!this.props.collapsed && <span className="nav-text">民北社区雷锋角</span>}	
+				</Link>
+				</Menu.Item>
 	        </Menu>
 		)
 	}
