@@ -128,6 +128,13 @@ const lvlingyanyuren = (location, cb) => {
     }, 'lvlingyanyuren');
 }
 
+// 南湖社工服务社
+const shegongfuwushe = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/shegongfuwushe/shegongfuwusheIndex').default)
+    }, 'shegongfuwushe');
+}
+
 const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/home" component={layout} onEnter={requireAuth}>
@@ -143,6 +150,7 @@ const RouteConfig = (
 			<Route path="/ui/twoui" getComponent={twoui} onEnter={requireAuth} />
             <Route path="/leifengjiao" getComponent={leifengjiao} onEnter={requireAuth} />
             <Route path="/lvlingyanyuren" getComponent={lvlingyanyuren} onEnter={requireAuth} />
+            <Route path="/shegongfuwushe" getComponent={shegongfuwushe} onEnter={requireAuth} />
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
