@@ -121,10 +121,17 @@ const leifengjiao = (location, cb) => {
     }, 'leifengjiao');
 }
 
+// 绿菱烟雨人社会服务工作室
+const lvlingyanyuren = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/lvlingyanyuren/lvlingyanyurenIndex').default)
+    }, 'lvlingyanyuren');
+}
+
 const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/home" component={layout} onEnter={requireAuth}>
-			<IndexRoute getComponent={home} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
+			<IndexRoute getComponent={leifengjiao} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
 			<Route path="/home" getComponent={home} onEnter={requireAuth} />
             <Route path="/chart/line" getComponent={chartLine} onEnter={requireAuth} />
 			<Route path="/general/button" getComponent={button} onEnter={requireAuth} />
@@ -135,6 +142,7 @@ const RouteConfig = (
 			<Route path="/ui/oneui" getComponent={oneui} onEnter={requireAuth} />
 			<Route path="/ui/twoui" getComponent={twoui} onEnter={requireAuth} />
             <Route path="/leifengjiao" getComponent={leifengjiao} onEnter={requireAuth} />
+            <Route path="/lvlingyanyuren" getComponent={lvlingyanyuren} onEnter={requireAuth} />
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
