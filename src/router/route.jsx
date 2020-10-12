@@ -135,6 +135,20 @@ const shegongfuwushe = (location, cb) => {
     }, 'shegongfuwushe');
 }
 
+// 乐心社会组织服务中心
+const lexinshehuizuzhi= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/lexinshehuizuzhi/lexinshehuizuzhiIndex').default)
+    }, 'lexinshehuizuzhi');
+}
+
+// “南湖家苑”失独家庭互助中心
+const shidujiating= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/shidujiating/shidujiatingIndex').default)
+    }, 'shidujiating');
+}
+
 const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/home" component={layout} onEnter={requireAuth}>
@@ -151,6 +165,8 @@ const RouteConfig = (
             <Route path="/leifengjiao" getComponent={leifengjiao} onEnter={requireAuth} />
             <Route path="/lvlingyanyuren" getComponent={lvlingyanyuren} onEnter={requireAuth} />
             <Route path="/shegongfuwushe" getComponent={shegongfuwushe} onEnter={requireAuth} />
+            <Route path="/lexinshehuizuzhi" getComponent={lexinshehuizuzhi} onEnter={requireAuth} />
+            <Route path="/shidujiating" getComponent={shidujiating} onEnter={requireAuth} />
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
