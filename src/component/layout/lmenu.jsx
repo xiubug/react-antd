@@ -75,16 +75,6 @@ export class Lmenu extends Component {
 	              {!this.props.collapsed && <span className="nav-text">广告管理</span>}
 	            </Link>
 	            </Menu.Item>
-	            <SubMenu
-	              key="sub1" title={<span><Icon type="team" /><span className="nav-text">UI组件</span></span>}
-	            >
-	              <Menu.Item key="oneui"><Link to="/ui/oneui">组件一</Link></Menu.Item>
-	              <Menu.Item key="twoui"><Link to="/ui/twoui">组件二</Link></Menu.Item>
-	            </SubMenu>
-	            <SubMenu key="sub2" title={<span><Icon type="setting" /><span className="nav-text">只展开当前父级菜单</span></span>}>
-			          <Menu.Item key="9">Option 9</Menu.Item>
-			          <Menu.Item key="10">Option 10</Menu.Item>
-			    </SubMenu>
 	        </Menu>
 		)
 	}
