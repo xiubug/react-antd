@@ -24,6 +24,7 @@ class lexinshehuizuzhi extends Component {
 						<p>情系孤老 童心送暖</p>
 						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E6%83%85%E7%B3%BB%E5%AD%A4%E8%80%81.png"/>
 						<br></br>
+						<br></br>
 						<p>为残障家庭拍摄全家福</p>
 						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E5%85%A8%E5%AE%B6%E7%A6%8F.jpg" />
                     </Card> 

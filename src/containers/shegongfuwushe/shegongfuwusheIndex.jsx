@@ -25,6 +25,7 @@ class shegongfuwushe extends Component {
 						<p>抗击疫情——社工与你同行</p>
 						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E6%8A%97%E5%87%BB%E7%96%AB%E6%83%85.jpg"/>
 						<br></br>
+						<br></br>
 						<p>社工日的圆桌工作坊活动</p>
 						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E5%9C%86%E6%A1%8C%E5%B7%A5%E4%BD%9C%E5%9D%8A%E6%B4%BB%E5%8A%A8.jpg" />
                     </Card> 

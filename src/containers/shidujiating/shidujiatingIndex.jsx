@@ -25,7 +25,9 @@ class shidujiating extends Component {
 						<p>失独家庭志愿者为残疾人、癌症患者开展各类志愿帮扶服务及保护河道和绿道的环境保护志愿活动。</p>
 						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E4%BA%92%E5%8A%A9%E4%B8%AD%E5%BF%831.jpg"/>
 						<br></br>
+						<br></br>
                         <img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E4%BA%92%E5%8A%A9%E4%B8%AD%E5%BF%832.jpg"/>
+						<br></br>
 						<br></br>
                         <img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E4%BA%92%E5%8A%A9%E4%B8%AD%E5%BF%833.jpg"/>
 						<br></br>   

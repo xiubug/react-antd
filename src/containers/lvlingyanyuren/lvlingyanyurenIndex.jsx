@@ -24,6 +24,7 @@ class lvlingyanyuren extends Component {
 						<p>手工爱好都制作烟雨特色的菱形香囊作品</p>
 						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E8%8F%B1%E5%BD%A2%E9%A6%99%E5%9B%8A.png"/>
 						<br></br>
+						<br></br>
 						<p>工作室风采展示</p>
 						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E5%AE%A4%E9%A3%8E%E9%87%87%E5%B1%95%E7%A4%BA.png" />
                     </Card> 

@@ -26,6 +26,7 @@ class leifengjiao extends Component {
 						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E5%86%9C%E6%B0%91%E5%B7%A5%E5%AD%90%E5%A5%B3%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE.jpg" />
 						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E5%86%9C%E6%B0%91%E5%B7%A5%E5%AD%90%E5%A5%B3%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE2.jpg" />
 						<br></br>
+						<br></br>
 						<p>入户走访，了解需求。针对辖区一位青少年开展帮扶帮教。</p>
 						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E5%85%A5%E6%88%B7%E8%B5%B0%E8%AE%BF.jpg" />
 						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E5%85%A5%E6%88%B7%E8%B5%B0%E8%AE%BF2.jpg" />
