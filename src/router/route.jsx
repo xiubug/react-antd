@@ -114,61 +114,11 @@ const requireAuth = (nextState, replace) => {
 	}
 }
 
-// 民北社区雷锋角
-const leifengjiao = (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../containers/leifengjiao/leifengjiaoIndex').default)
-    }, 'leifengjiao');
-}
-
-// 绿菱烟雨人社会服务工作室
-const lvlingyanyuren = (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../containers/lvlingyanyuren/lvlingyanyurenIndex').default)
-    }, 'lvlingyanyuren');
-}
-
-// 南湖社工服务社
-const shegongfuwushe = (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../containers/shegongfuwushe/shegongfuwusheIndex').default)
-    }, 'shegongfuwushe');
-}
-
-// 乐心社会组织服务中心
-const lexinshehuizuzhi= (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../containers/lexinshehuizuzhi/lexinshehuizuzhiIndex').default)
-    }, 'lexinshehuizuzhi');
-}
-
-// “南湖家苑”失独家庭互助中心
-const shidujiating= (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../containers/shidujiating/shidujiatingIndex').default)
-    }, 'shidujiating');
-}
-
-// 文星社区星连心
-const xinlianxin= (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../containers/xinlianxin/xinlianxinIndex').default)
-    }, 'xinlianxin');
-}
-
-// 成长驿站社会组织服务中心
-const chengzhangyizhan= (location, cb) => {
-    require.ensure([], require => {
-        cb(null, require('../containers/chengzhangyizhan/chengzhangyizhanIndex').default)
-    }, 'chengzhangyizhan');
-}
-
 const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/home" component={layout} onEnter={requireAuth}>
-			<IndexRoute getComponent={leifengjiao} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
-            {/*
-        	<Route path="/home" getComponent={home} onEnter={requireAuth} />
+			<IndexRoute getComponent={home} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
+			<Route path="/home" getComponent={home} onEnter={requireAuth} />
             <Route path="/chart/line" getComponent={chartLine} onEnter={requireAuth} />
 			<Route path="/general/button" getComponent={button} onEnter={requireAuth} />
 			<Route path="/general/icon" getComponent={icon} onEnter={requireAuth} />
@@ -176,20 +126,12 @@ const RouteConfig = (
 			<Route path="/setting" getComponent={setting} onEnter={requireAuth} />
 			<Route path="/adver" getComponent={adver} onEnter={requireAuth} />
 			<Route path="/ui/oneui" getComponent={oneui} onEnter={requireAuth} />
-            <Route path="/ui/twoui" getComponent={twoui} onEnter={requireAuth} />
-            */} 
-            <Route path="/leifengjiao" getComponent={leifengjiao} onEnter={requireAuth} />
-            <Route path="/lvlingyanyuren" getComponent={lvlingyanyuren} onEnter={requireAuth} />
-            <Route path="/shegongfuwushe" getComponent={shegongfuwushe} onEnter={requireAuth} />
-            <Route path="/lexinshehuizuzhi" getComponent={lexinshehuizuzhi} onEnter={requireAuth} />
-            <Route path="/shidujiating" getComponent={shidujiating} onEnter={requireAuth} />
-            <Route path="/xinlianxin" getComponent={xinlianxin} onEnter={requireAuth} />
-            <Route path="/chengzhangyizhan" getComponent={chengzhangyizhan} onEnter={requireAuth} />
+			<Route path="/ui/twoui" getComponent={twoui} onEnter={requireAuth} />
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
 		</Route>
-		<Redirect from="*" to="/leifengjiao" />
+		<Redirect from="*" to="/home" />
 	</Router>
 );
 

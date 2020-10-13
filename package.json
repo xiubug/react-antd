@@ -1,7 +1,7 @@
 {
   "name": "react-antd",
   "version": "1.0.0",
-  "description": "南湖街道社会组织",
+  "description": "基于react + redux + immutable + less + ES6/7 + webpack + fetch + react-router + antd(1.x)实现的SPA后台管理系统模板",
   "main": "server.js",
   "scripts": {
     "dev": "node server.js",
