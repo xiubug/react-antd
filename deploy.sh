@@ -13,5 +13,5 @@ qshell qupload2 --src-dir=$PWD/antd --bucket=$targetBucket
 
 #clean jobs
 rm list.txt
-rm -rf dist
+rm -rf antd
 rm -rf $HOME/.qshell/qupload/*
