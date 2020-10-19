@@ -73,7 +73,7 @@ class Login extends Component {
 				<Spin tip="载入中..." spinning={loading}>
 					<div className="login-logo">
 				        <img src={Config.logoSrc} />
-				        <span>Ant Design</span>
+				        <span>南湖街道社会组织</span>
 				    </div>
 					<Form onSubmit={this.handleSubmit}>
 				        <FormItem hasFeedback>
