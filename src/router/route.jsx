@@ -163,6 +163,13 @@ const chengzhangyizhan= (location, cb) => {
     }, 'chengzhangyizhan');
 }
 
+//南湖街道老娘舅团队
+const laoniangjiu= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/laoniangjiu/laoniangjiuIndex').default)
+    }, 'laoniangjiu');
+}
+
 const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/home" component={layout} onEnter={requireAuth}>
@@ -179,6 +186,7 @@ const RouteConfig = (
             <Route path="/ui/twoui" getComponent={twoui} onEnter={requireAuth} />
             */} 
             <Route path="/leifengjiao" getComponent={leifengjiao} onEnter={requireAuth} />
+            <Route path="/laoniangjiu" getComponent={laoniangjiu} onEnter={requireAuth} />
             <Route path="/lvlingyanyuren" getComponent={lvlingyanyuren} onEnter={requireAuth} />
             <Route path="/shegongfuwushe" getComponent={shegongfuwushe} onEnter={requireAuth} />
             <Route path="/lexinshehuizuzhi" getComponent={lexinshehuizuzhi} onEnter={requireAuth} />
