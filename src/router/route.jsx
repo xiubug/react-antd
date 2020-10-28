@@ -177,6 +177,13 @@ const wenxinjiayuan= (location, cb) => {
     }, 'wenxinjiayuan');
 }
 
+//社会组织入驻南湖街道矛调中心轮值计划表			
+const zhibanbiao= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/zhibanbiao/zhibanbiaoIndex').default)
+    }, 'zhibanbiao');
+}
+
 const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/home" component={layout} onEnter={requireAuth}>
@@ -201,11 +208,12 @@ const RouteConfig = (
             <Route path="/xinlianxin" getComponent={xinlianxin} onEnter={requireAuth} />
             <Route path="/chengzhangyizhan" getComponent={chengzhangyizhan} onEnter={requireAuth} />
             <Route path="/wenxinjiayuan" getComponent={wenxinjiayuan} onEnter={requireAuth} />
+            <Route path="/zhibanbiao" getComponent={zhibanbiao} onEnter={requireAuth} />
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
 		</Route>
-		<Redirect from="*" to="/leifengjiao" />
+		<Redirect from="*" to="/zhibanbiao" />
 	</Router>
 );
 
