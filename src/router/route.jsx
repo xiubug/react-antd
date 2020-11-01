@@ -186,19 +186,9 @@ const zhibanbiao= (location, cb) => {
 
 const RouteConfig = (
 	<Router history={browserHistory}>
-		<Route path="/home" component={layout} onEnter={requireAuth}>
-			<IndexRoute getComponent={leifengjiao} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
-            {/*
-        	<Route path="/home" getComponent={home} onEnter={requireAuth} />
-            <Route path="/chart/line" getComponent={chartLine} onEnter={requireAuth} />
-			<Route path="/general/button" getComponent={button} onEnter={requireAuth} />
-			<Route path="/general/icon" getComponent={icon} onEnter={requireAuth} />
-            <Route path="/user" getComponent={user} onEnter={requireAuth} />
-			<Route path="/setting" getComponent={setting} onEnter={requireAuth} />
-			<Route path="/adver" getComponent={adver} onEnter={requireAuth} />
-			<Route path="/ui/oneui" getComponent={oneui} onEnter={requireAuth} />
-            <Route path="/ui/twoui" getComponent={twoui} onEnter={requireAuth} />
-            */} 
+		<Route path="/zhibanbiao" component={layout} onEnter={requireAuth}>
+			<IndexRoute getComponent={zhibanbiao} onEnter={requireAuth} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
+            <Route path="/zhibanbiao" getComponent={zhibanbiao} onEnter={requireAuth} />
             <Route path="/leifengjiao" getComponent={leifengjiao} onEnter={requireAuth} />
             <Route path="/laoniangjiu" getComponent={laoniangjiu} onEnter={requireAuth} />
             <Route path="/lvlingyanyuren" getComponent={lvlingyanyuren} onEnter={requireAuth} />
@@ -207,8 +197,7 @@ const RouteConfig = (
             <Route path="/shidujiating" getComponent={shidujiating} onEnter={requireAuth} />
             <Route path="/xinlianxin" getComponent={xinlianxin} onEnter={requireAuth} />
             <Route path="/chengzhangyizhan" getComponent={chengzhangyizhan} onEnter={requireAuth} />
-            <Route path="/wenxinjiayuan" getComponent={wenxinjiayuan} onEnter={requireAuth} />
-            <Route path="/zhibanbiao" getComponent={zhibanbiao} onEnter={requireAuth} />
+            <Route path="/wenxinjiayuan" getComponent={wenxinjiayuan} onEnter={requireAuth} />           
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home
