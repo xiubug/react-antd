@@ -4,6 +4,8 @@ import { is, fromJS} from 'immutable';
 import {Card,Row, Col,} from 'antd';
 import { Table, Tag, Space } from 'antd';
 
+import styles from './style/zhibanbiao.less';
+
 const columns = [
     {
         title: '名称',
@@ -104,7 +106,12 @@ class zhibanbiao extends Component {
 			<Row>
 				<Col span={20}>
                     <Card title="社会组织入驻南湖街道矛调中心轮值表" className="mg-top20">
-                        <Table columns={columns} dataSource={data} bordered={true}></Table>
+                        <Table 
+                            columns={columns} 
+                            dataSource={data} 
+                            bordered={true} 
+                            rowClassName={()=>'table-cell'}
+                        />
                     </Card> 
                 </Col>
             </Row>
