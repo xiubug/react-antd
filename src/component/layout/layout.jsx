@@ -55,7 +55,7 @@ class Main extends Component {
 		// 这个组件是一个包裹组件，所有的路由跳转的页面都会以this.props.children的形式加载到本组件下
 		return (
 		<Layout className="layout">
-	        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+	        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} >
 		        <div className="layout-logo">
 		        	<Link to="/leifengjiao">
 			        	<img className="logo-img" src={Config.logoSrc} />

@@ -184,6 +184,48 @@ const zhibanbiao= (location, cb) => {
     }, 'zhibanbiao');
 }
 
+//南湖区近邻社会工作服务发展中心			
+const jinlin= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/jinlin/jinlinIndex').default)
+    }, 'jinlin');
+}
+
+//青鸟社工			
+const qingniao= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/qingniao/qingniaoIndex').default)
+    }, 'qingniao');
+}
+
+//南湖街道桂苑社区社会组织联合会		
+const guiyuan= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/guiyuan/guiyuanIndex').default)
+    }, 'guiyuan');
+}
+
+//南湖街道南湖社区自治管理服务中心		
+const nanhu= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/nanhu/nanhuIndex').default)
+    }, 'guiyuan');
+}
+
+//南湖街道益行社会组织服务中心	
+const yixing= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/yixing/yixingIndex').default)
+    }, 'yixing');
+}
+
+//椿熙堂
+const chunxitang= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/chunxitang/chunxitangIndex').default)
+    }, 'chunxitang');
+}
+
 const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/zhibanbiao" component={layout} onEnter={requireAuth}>
@@ -197,7 +239,13 @@ const RouteConfig = (
             <Route path="/shidujiating" getComponent={shidujiating} onEnter={requireAuth} />
             <Route path="/xinlianxin" getComponent={xinlianxin} onEnter={requireAuth} />
             <Route path="/chengzhangyizhan" getComponent={chengzhangyizhan} onEnter={requireAuth} />
-            <Route path="/wenxinjiayuan" getComponent={wenxinjiayuan} onEnter={requireAuth} />           
+            <Route path="/wenxinjiayuan" getComponent={wenxinjiayuan} onEnter={requireAuth} />
+            <Route path="/jinlin" getComponent={jinlin} onEnter={requireAuth} />   
+            <Route path="/qingniao" getComponent={qingniao} onEnter={requireAuth} /> 
+            <Route path="/guiyuan" getComponent={guiyuan} onEnter={requireAuth} /> 
+            <Route path="/nanhu" getComponent={nanhu} onEnter={requireAuth} />    
+            <Route path="/yixing" getComponent={yixing} onEnter={requireAuth} /> 
+            <Route path="/chunxitang" getComponent={chunxitang} onEnter={requireAuth} />       
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home

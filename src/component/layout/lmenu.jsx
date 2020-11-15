@@ -94,6 +94,36 @@ export class Lmenu extends Component {
 					{!this.props.collapsed && <span className="nav-text">成长驿站社会组织服务中心</span>}	
 				</Link>
 				</Menu.Item>
+				<Menu.Item key="jinlin">
+				<Link to="/jinlin">
+					{!this.props.collapsed && <span className="nav-text">南湖区近邻社会工作服务发展中心</span>}	
+				</Link>
+				</Menu.Item>
+				<Menu.Item key="qingniao">
+				<Link to="/qingniao">
+					{!this.props.collapsed && <span className="nav-text">青鸟社工</span>}	
+				</Link>
+				</Menu.Item>
+				<Menu.Item key="chunxitang">
+				<Link to="/chunxitang">
+					{!this.props.collapsed && <span className="nav-text">椿熙堂</span>}	
+				</Link>
+				</Menu.Item>
+				<Menu.Item key="guiyuan">
+				<Link to="/guiyuan">
+					{!this.props.collapsed && <span className="nav-text">南湖街道桂苑社区社会组织联合会</span>}	
+				</Link>
+				</Menu.Item>
+				<Menu.Item key="nanhu">
+				<Link to="/nanhu">
+					{!this.props.collapsed && <span className="nav-text">南湖街道南湖社区自治管理服务中心</span>}	
+				</Link>
+				</Menu.Item>
+				<Menu.Item key="yixing">
+				<Link to="/yixing">
+					{!this.props.collapsed && <span className="nav-text">南湖街道益行社会组织服务中心</span>}	
+				</Link>
+				</Menu.Item>
 	        </Menu>
 		)
 	}
