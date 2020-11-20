@@ -49,14 +49,24 @@ export class Lmenu extends Component {
 					{!this.props.collapsed && <span className="nav-text">社会组织矛调中心轮值表</span>}	
 				</Link>
 				</Menu.Item>
-				<Menu.Item key="leifengjiao">
-				<Link to="/leifengjiao">
-					{!this.props.collapsed && <span className="nav-text">民北社区雷锋角</span>}	
-				</Link>
-				</Menu.Item>
 				<Menu.Item key="laoniangjiu">
 				<Link to="/laoniangjiu">
 					{!this.props.collapsed && <span className="nav-text">南湖街道老娘舅团队</span>}	
+				</Link>
+				</Menu.Item>
+				<Menu.Item key="wenxinjiayuan">
+				<Link to="/wenxinjiayuan">
+					{!this.props.collapsed && <span className="nav-text">南湖区温馨家园社工站</span>}	
+				</Link>
+				</Menu.Item>
+				<Menu.Item key="pinganjianshe">
+				<Link to="/pinganjianshe">
+					{!this.props.collapsed && <span className="nav-text">巾帼行动</span>}	
+				</Link>
+				</Menu.Item>
+				<Menu.Item key="leifengjiao">
+				<Link to="/leifengjiao">
+					{!this.props.collapsed && <span className="nav-text">民北社区雷锋角</span>}	
 				</Link>
 				</Menu.Item>
 				<Menu.Item key="lvlingyanyuren">
@@ -82,11 +92,6 @@ export class Lmenu extends Component {
 				<Menu.Item key="xinlianxin">
 				<Link to="/xinlianxin">
 					{!this.props.collapsed && <span className="nav-text">文星社区星连心</span>}	
-				</Link>
-				</Menu.Item>
-				<Menu.Item key="wenxinjiayuan">
-				<Link to="/wenxinjiayuan">
-					{!this.props.collapsed && <span className="nav-text">南湖区温馨家园社工站</span>}	
 				</Link>
 				</Menu.Item>
 				<Menu.Item key="chengzhangyizhan">

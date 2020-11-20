@@ -226,6 +226,14 @@ const chunxitang= (location, cb) => {
     }, 'chunxitang');
 }
 
+//椿熙堂
+const pinganjianshe= (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/pinganjianshe/pinganjiansheIndex').default)
+    }, 'pinganjianshe');
+}
+
+
 const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/zhibanbiao" component={layout} onEnter={requireAuth}>
@@ -245,7 +253,8 @@ const RouteConfig = (
             <Route path="/guiyuan" getComponent={guiyuan} onEnter={requireAuth} /> 
             <Route path="/nanhu" getComponent={nanhu} onEnter={requireAuth} />    
             <Route path="/yixing" getComponent={yixing} onEnter={requireAuth} /> 
-            <Route path="/chunxitang" getComponent={chunxitang} onEnter={requireAuth} />       
+            <Route path="/chunxitang" getComponent={chunxitang} onEnter={requireAuth} /> 
+            <Route path="/pinganjianshe" getComponent={pinganjianshe} onEnter={requireAuth} />      
 		</Route>
 		<Route path="/login" component={Roots}> // 所有的访问，都跳转到Roots
 			<IndexRoute component={login} /> // 默认加载的组件，比如访问www.test.com,会自动跳转到www.test.com/home

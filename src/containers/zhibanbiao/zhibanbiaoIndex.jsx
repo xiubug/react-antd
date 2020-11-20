@@ -104,15 +104,8 @@ class zhibanbiao extends Component {
 		return (	
 		<div>
 			<Row>
-				<Col span={20}>
-                    <Card title="社会组织入驻南湖街道矛调中心轮值表" className="mg-top20">
-                        <Table 
-                            columns={columns} 
-                            dataSource={data} 
-                            bordered={true} 
-                            rowClassName={()=>'table-cell'}
-                        />
-                    </Card> 
+				<Col span={20} className="mg-top20">
+                    <img height="2202" width="1350" src="http://pontt9qvy.bkt.clouddn.com/%E8%BD%AE%E5%80%BC%E8%A1%A8-new.jpg"></img>
                 </Col>
             </Row>
 		</div>
