@@ -17,7 +17,7 @@ class pinganjianshe extends Component {
 			<Row>
 				<Col span={20}>
                     <img height="4429" width="1350" src="http://pontt9qvy.bkt.clouddn.com/%E5%B9%B3%E5%AE%89%E5%BB%BA%E8%AE%BE-new.jpg"></img>
-                    <video ref="video" width="1350" preload="auto" controls playsinline autoplay muted loop src="http://pontt9qvy.bkt.clouddn.com/%E4%BD%A0%E7%9A%84%E6%A8%A1%E6%A0%B720200115.mp4"></video>
+                    <video width="1350" preload="auto" controls playsinline autoplay muted loop src="http://pontt9qvy.bkt.clouddn.com/%E4%BD%A0%E7%9A%84%E6%A8%A1%E6%A0%B720200115.mp4"></video>
                 </Col>
             </Row>
 		</div>
