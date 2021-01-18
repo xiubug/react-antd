@@ -16,7 +16,7 @@ class laoniangjiu extends Component {
 		<div>
 			<Row>
 				<Col span={20} className="mg-top20">
-					<img height="5782" width="1350" src="http://pontt9qvy.bkt.clouddn.com/%E8%80%81%E5%A8%98%E8%88%85-new.jpg"></img>
+					<img height="6947" width="1622" src="http://pontt9qvy.bkt.clouddn.com/%E8%80%81%E5%A8%98%E8%88%85-new.jpg"></img>
                 </Col>
             </Row>
 		</div>

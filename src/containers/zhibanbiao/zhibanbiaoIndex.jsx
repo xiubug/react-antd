@@ -105,7 +105,7 @@ class zhibanbiao extends Component {
 		<div>
 			<Row>
 				<Col span={20} className="mg-top20">
-                    <img height="2202" width="1350" src="http://pontt9qvy.bkt.clouddn.com/%E8%BD%AE%E5%80%BC%E8%A1%A8-new.jpg"></img>
+                    <img height="2719" width="1667" src="http://pontt9qvy.bkt.clouddn.com/%E8%BD%AE%E5%80%BC%E8%A1%A8-new.jpg"></img>
                 </Col>
             </Row>
 		</div>

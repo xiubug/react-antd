@@ -15,18 +15,8 @@ class chengzhangyizhan extends Component {
 		return (	
 		<div>
 			<Row>
-				<Col span={20}>
-                    <Card title="成长驿站社会组织服务中心" className="mg-top20">
-						<h2>组织简介：</h2>
-                        <p>2019年12月登记，服务内容：运用社会工作专业理念和方法为社区青少年成长指导、预防解决青少年问题，促进其全面健康发展。</p>
-						<br></br>
-						<h2>组织活动：</h2>
-						<p>垃圾分类新时尚•燃爆绿色“家”油站</p>
-						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB1.jpg"/>
-						<br></br>
-						<br></br>
-						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB2.jpg" />
-                    </Card> 
+				<Col span={20} className="mg-top20">
+					<img height="5257" width="1622" src="http://pontt9qvy.bkt.clouddn.com/%E4%BA%91%E9%83%BD%E7%A4%BE%E5%8C%BA%E6%88%90%E9%95%BF%E9%A9%BF%E7%AB%99%E5%B7%A5%E4%BD%9C%E5%AE%A4.jpg"></img>
                 </Col>
             </Row>
 		</div>

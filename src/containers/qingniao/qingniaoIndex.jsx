@@ -16,7 +16,7 @@ class qingniao extends Component {
 		<div>
 			<Row>
 				<Col span={20} className="mg-top20">
-					<img height="5782" width="1350" src="http://pontt9qvy.bkt.clouddn.com/%E9%9D%92%E9%B8%9F%E7%A4%BE%E5%B7%A5-01.jpg"></img>
+					<img height="7291" width="1621" src="http://pontt9qvy.bkt.clouddn.com/%E9%9D%92%E9%B8%9F%E7%A4%BE%E5%B7%A5-01.jpg"></img>
                 </Col>
             </Row>
 		</div>

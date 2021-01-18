@@ -15,8 +15,8 @@ class wenxinjiayuan extends Component {
 		return (	
 		<div>
 			<Row>
-				<Col span={20}>
-                    <img height="3759" width="1350" src="http://pontt9qvy.bkt.clouddn.com/%E6%B8%A9%E9%A6%A8%E5%AE%B6%E5%9B%AD-new.jpg"></img>
+				<Col span={20} className="mg-top20">
+                    <img height="4645" width="1668" src="http://pontt9qvy.bkt.clouddn.com/%E6%B8%A9%E9%A6%A8%E5%AE%B6%E5%9B%AD-new.jpg"></img>
                 </Col>
             </Row>
 		</div>
