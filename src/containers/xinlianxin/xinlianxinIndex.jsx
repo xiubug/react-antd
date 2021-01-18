@@ -15,16 +15,8 @@ class xinlianxin extends Component {
 		return (	
 		<div>
 			<Row>
-				<Col span={20}>
-                    <Card title="文星社区星连心" className="mg-top20">
-						<img height="50" width="50" src="http://pontt9qvy.bkt.clouddn.com/%E6%96%87%E6%98%9F%E7%A4%BE%E5%8C%BA%E6%98%9F%E8%BF%9E%E5%BF%83.jpg" />
-						<h2>组织简介：</h2>
-                        <p>2017年9月登记注册，服务内容：以服务对象的需要为出发和落脚点，挖掘服务对象潜能，调动社会资源，营造和谐生活氛围，促进服务对象和社会的融合。</p>
-						<br></br>
-						<h2>组织活动：</h2>
-						<p>开展享受生活 品尝美食</p>
-						<img height="300" width="400" src="http://pontt9qvy.bkt.clouddn.com/%E5%93%81%E5%B0%9D%E7%BE%8E%E9%A3%9F.jpg" />
-                    </Card> 
+				<Col span={20} className="mg-top20">
+					<img height="4578" width="1622" src="http://pontt9qvy.bkt.clouddn.com/1%E6%96%87%E6%98%9F%E7%A4%BE%E5%8C%BA%E8%BF%9E%E5%BF%83.jpg"></img>
                 </Col>
             </Row>
 		</div>
