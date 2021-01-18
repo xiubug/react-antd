@@ -16,7 +16,7 @@ class chunxitang extends Component {
 		<div>
 			<Row>
 				<Col span={20} className="mg-top20">
-					<img height="5782" width="1550" src="http://pontt9qvy.bkt.clouddn.com/%E6%A4%BF%E7%86%99%E5%A0%82.jpg"></img>
+					<img height="5128" width="1621" src="http://pontt9qvy.bkt.clouddn.com/%E6%A4%BF%E7%86%99%E5%A0%82.jpg"></img>
                 </Col>
             </Row>
 		</div>
